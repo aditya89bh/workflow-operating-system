@@ -33,3 +33,14 @@ def start_workflow(workflow: Workflow) -> Workflow:
     validate(workflow)
     workflow.status = WorkflowStatus.RUNNING
     return workflow
+
+
+def pause_workflow(workflow: Workflow) -> Workflow:
+    """Pause a running workflow, moving it to the paused state."""
+    if workflow.status is not WorkflowStatus.RUNNING:
+        raise WorkflowOperationError(
+            f"only running workflows can be paused, "
+            f"current state is {workflow.status.value!r}"
+        )
+    workflow.status = WorkflowStatus.PAUSED
+    return workflow
