@@ -9,6 +9,7 @@ from workflow_os.memory.actors import (
     step_actor,
     workflow_owner,
 )
+from workflow_os.memory.audit import AuditReport, generate_audit_report
 from workflow_os.memory.confidence import (
     CONFIDENCE_BY_EVENT_TYPE,
     HIGH_CONFIDENCE,
@@ -59,6 +60,7 @@ __all__ = [
     "OWNER_METADATA_KEY",
     "STEP_EVENT_TYPES",
     "WORKFLOW_EVENT_TYPES",
+    "AuditReport",
     "MemoryEventType",
     "MemoryNotFoundError",
     "MemoryQuery",
@@ -69,6 +71,7 @@ __all__ = [
     "TimelineEntry",
     "apply_query",
     "confidence_for",
+    "generate_audit_report",
     "get_actor_history",
     "get_events_between",
     "get_events_since",
