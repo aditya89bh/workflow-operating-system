@@ -11,6 +11,12 @@ from workflow_os.operations import (
     resume_workflow,
     start_workflow,
 )
+from workflow_os.persistence import (
+    workflow_from_dict,
+    workflow_from_json,
+    workflow_to_dict,
+    workflow_to_json,
+)
 from workflow_os.status import WorkflowStatus
 from workflow_os.step import WorkflowStep
 from workflow_os.transitions import (
@@ -63,4 +69,8 @@ __all__ = [
     "validate",
     "validate_schema_version",
     "validate_workflow",
+    "workflow_from_dict",
+    "workflow_from_json",
+    "workflow_to_dict",
+    "workflow_to_json",
 ]
