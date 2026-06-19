@@ -9,6 +9,11 @@ from workflow_os.memory.events import (
     WORKFLOW_EVENT_TYPES,
     MemoryEventType,
 )
+from workflow_os.memory.history import (
+    TimelineEntry,
+    get_execution_timeline,
+    get_workflow_records,
+)
 from workflow_os.memory.record import MemoryRecord, new_event_id, utcnow
 from workflow_os.memory.recorder import MemoryRecorder
 from workflow_os.memory.sqlite_store import SQLiteMemoryStore
@@ -30,7 +35,10 @@ __all__ = [
     "MemoryRecorder",
     "MemoryStore",
     "SQLiteMemoryStore",
+    "TimelineEntry",
     "apply_query",
+    "get_execution_timeline",
+    "get_workflow_records",
     "matches",
     "new_event_id",
     "utcnow",
