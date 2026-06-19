@@ -11,6 +11,7 @@ from __future__ import annotations
 from typing import Any
 
 from workflow_os.executor import WorkflowExecutor
+from workflow_os.memory.actors import step_actor, workflow_owner
 from workflow_os.memory.events import MemoryEventType
 from workflow_os.memory.record import MemoryRecord
 from workflow_os.memory.store import MemoryStore
@@ -54,22 +55,35 @@ class MemoryRecorder:
         return record
 
     def record_workflow_started(self, workflow: Workflow) -> MemoryRecord:
-        return self._emit(workflow, MemoryEventType.WORKFLOW_STARTED)
+        return self._emit(
+            workflow, MemoryEventType.WORKFLOW_STARTED, actor=workflow_owner(workflow)
+        )
 
     def record_workflow_paused(self, workflow: Workflow) -> MemoryRecord:
-        return self._emit(workflow, MemoryEventType.WORKFLOW_PAUSED)
+        return self._emit(
+            workflow, MemoryEventType.WORKFLOW_PAUSED, actor=workflow_owner(workflow)
+        )
 
     def record_workflow_resumed(self, workflow: Workflow) -> MemoryRecord:
-        return self._emit(workflow, MemoryEventType.WORKFLOW_RESUMED)
+        return self._emit(
+            workflow, MemoryEventType.WORKFLOW_RESUMED, actor=workflow_owner(workflow)
+        )
 
     def record_workflow_completed(self, workflow: Workflow) -> MemoryRecord:
-        return self._emit(workflow, MemoryEventType.WORKFLOW_COMPLETED)
+        return self._emit(
+            workflow, MemoryEventType.WORKFLOW_COMPLETED, actor=workflow_owner(workflow)
+        )
 
     def record_workflow_failed(
         self, workflow: Workflow, *, reason: str | None = None
     ) -> MemoryRecord:
         metadata = {"reason": reason} if reason else None
-        return self._emit(workflow, MemoryEventType.WORKFLOW_FAILED, metadata=metadata)
+        return self._emit(
+            workflow,
+            MemoryEventType.WORKFLOW_FAILED,
+            actor=workflow_owner(workflow),
+            metadata=metadata,
+        )
 
     def start(self, workflow: Workflow) -> Workflow:
         """Start a workflow and record a ``workflow_started`` event."""
@@ -105,14 +119,20 @@ class MemoryRecorder:
         self, workflow: Workflow, step: WorkflowStep
     ) -> MemoryRecord:
         return self._emit(
-            workflow, MemoryEventType.STEP_STARTED, step_id=step.id
+            workflow,
+            MemoryEventType.STEP_STARTED,
+            step_id=step.id,
+            actor=step_actor(workflow, step),
         )
 
     def record_step_completed(
         self, workflow: Workflow, step: WorkflowStep
     ) -> MemoryRecord:
         return self._emit(
-            workflow, MemoryEventType.STEP_COMPLETED, step_id=step.id
+            workflow,
+            MemoryEventType.STEP_COMPLETED,
+            step_id=step.id,
+            actor=step_actor(workflow, step),
         )
 
     def record_step_failed(
@@ -120,14 +140,21 @@ class MemoryRecorder:
     ) -> MemoryRecord:
         metadata = {"reason": reason} if reason else None
         return self._emit(
-            workflow, MemoryEventType.STEP_FAILED, step_id=step.id, metadata=metadata
+            workflow,
+            MemoryEventType.STEP_FAILED,
+            step_id=step.id,
+            actor=step_actor(workflow, step),
+            metadata=metadata,
         )
 
     def record_step_skipped(
         self, workflow: Workflow, step: WorkflowStep
     ) -> MemoryRecord:
         return self._emit(
-            workflow, MemoryEventType.STEP_SKIPPED, step_id=step.id
+            workflow,
+            MemoryEventType.STEP_SKIPPED,
+            step_id=step.id,
+            actor=step_actor(workflow, step),
         )
 
     def start_step(self, workflow: Workflow, step: WorkflowStep) -> MemoryRecord:
