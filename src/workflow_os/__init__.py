@@ -4,6 +4,7 @@ A small, dependency-free library to model, validate, and execute workflows.
 """
 
 from workflow_os.executor import CycleError, WorkflowExecutor
+from workflow_os.operations import WorkflowOperationError, start_workflow
 from workflow_os.status import WorkflowStatus
 from workflow_os.step import WorkflowStep
 from workflow_os.transitions import (
@@ -38,6 +39,7 @@ __all__ = [
     "StepTransitionError",
     "Workflow",
     "WorkflowExecutor",
+    "WorkflowOperationError",
     "WorkflowStatus",
     "WorkflowStep",
     "WorkflowValidationError",
@@ -47,6 +49,7 @@ __all__ = [
     "is_supported_version",
     "is_valid",
     "migrate",
+    "start_workflow",
     "transition_step",
     "validate",
     "validate_schema_version",
