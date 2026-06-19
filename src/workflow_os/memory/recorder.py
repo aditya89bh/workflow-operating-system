@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from workflow_os.executor import WorkflowExecutor
 from workflow_os.memory.events import MemoryEventType
 from workflow_os.memory.record import MemoryRecord
 from workflow_os.memory.store import MemoryStore
@@ -20,6 +21,8 @@ from workflow_os.operations import (
     start_workflow,
 )
 from workflow_os.status import WorkflowStatus
+from workflow_os.step import WorkflowStep
+from workflow_os.transitions import StepStatus, transition_step
 from workflow_os.workflow import Workflow
 
 
@@ -96,4 +99,65 @@ class MemoryRecorder:
         """Mark a workflow failed and record a ``workflow_failed`` event."""
         workflow.status = WorkflowStatus.FAILED
         self.record_workflow_failed(workflow, reason=reason)
+        return workflow
+
+    def record_step_started(
+        self, workflow: Workflow, step: WorkflowStep
+    ) -> MemoryRecord:
+        return self._emit(
+            workflow, MemoryEventType.STEP_STARTED, step_id=step.id
+        )
+
+    def record_step_completed(
+        self, workflow: Workflow, step: WorkflowStep
+    ) -> MemoryRecord:
+        return self._emit(
+            workflow, MemoryEventType.STEP_COMPLETED, step_id=step.id
+        )
+
+    def record_step_failed(
+        self, workflow: Workflow, step: WorkflowStep, *, reason: str | None = None
+    ) -> MemoryRecord:
+        metadata = {"reason": reason} if reason else None
+        return self._emit(
+            workflow, MemoryEventType.STEP_FAILED, step_id=step.id, metadata=metadata
+        )
+
+    def record_step_skipped(
+        self, workflow: Workflow, step: WorkflowStep
+    ) -> MemoryRecord:
+        return self._emit(
+            workflow, MemoryEventType.STEP_SKIPPED, step_id=step.id
+        )
+
+    def start_step(self, workflow: Workflow, step: WorkflowStep) -> MemoryRecord:
+        """Transition a step to running and record a ``step_started`` event."""
+        transition_step(step, StepStatus.RUNNING)
+        return self.record_step_started(workflow, step)
+
+    def complete_step(self, workflow: Workflow, step: WorkflowStep) -> MemoryRecord:
+        """Transition a step to completed and record a ``step_completed`` event."""
+        transition_step(step, StepStatus.COMPLETED)
+        return self.record_step_completed(workflow, step)
+
+    def fail_step(
+        self, workflow: Workflow, step: WorkflowStep, *, reason: str | None = None
+    ) -> MemoryRecord:
+        """Transition a step to failed and record a ``step_failed`` event."""
+        transition_step(step, StepStatus.FAILED)
+        return self.record_step_failed(workflow, step, reason=reason)
+
+    def skip_step(self, workflow: Workflow, step: WorkflowStep) -> MemoryRecord:
+        """Transition a step to skipped and record a ``step_skipped`` event."""
+        transition_step(step, StepStatus.SKIPPED)
+        return self.record_step_skipped(workflow, step)
+
+    def run(self, workflow: Workflow) -> Workflow:
+        """Run a workflow end to end, recording workflow and step events."""
+        order = WorkflowExecutor(workflow).execution_order()
+        self.start(workflow)
+        for step in order:
+            self.start_step(workflow, step)
+            self.complete_step(workflow, step)
+        self.complete(workflow)
         return workflow
