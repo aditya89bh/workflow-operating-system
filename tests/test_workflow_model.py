@@ -1,4 +1,4 @@
-from workflow_os import Workflow
+from workflow_os import Workflow, WorkflowStatus
 
 
 def test_create_workflow_with_defaults():
@@ -7,7 +7,7 @@ def test_create_workflow_with_defaults():
     assert wf.name == "Onboarding"
     assert wf.description == ""
     assert wf.steps == []
-    assert wf.status == "draft"
+    assert wf.status is WorkflowStatus.DRAFT
     assert wf.metadata == {}
 
 

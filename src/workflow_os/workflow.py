@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from workflow_os.status import WorkflowStatus
 from workflow_os.step import WorkflowStep
 
 
@@ -25,5 +26,5 @@ class Workflow:
     name: str
     description: str = ""
     steps: list[WorkflowStep] = field(default_factory=list)
-    status: str = "draft"
+    status: WorkflowStatus = WorkflowStatus.DRAFT
     metadata: dict[str, Any] = field(default_factory=dict)
