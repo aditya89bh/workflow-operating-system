@@ -13,6 +13,7 @@ from typing import Any
 
 from workflow_os.executor import WorkflowExecutor
 from workflow_os.memory.actors import step_actor, workflow_owner
+from workflow_os.memory.confidence import confidence_for
 from workflow_os.memory.events import MemoryEventType
 from workflow_os.memory.record import MemoryRecord, utcnow
 from workflow_os.memory.store import MemoryStore
@@ -65,15 +66,18 @@ class MemoryRecorder:
         *,
         step_id: str | None = None,
         actor: str | None = None,
-        confidence: float = 1.0,
+        confidence: float | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> MemoryRecord:
+        resolved_confidence = (
+            confidence if confidence is not None else confidence_for(str(event_type))
+        )
         record = MemoryRecord.create(
             workflow_id=workflow.id,
             event_type=str(event_type),
             step_id=step_id,
             actor=actor,
-            confidence=confidence,
+            confidence=resolved_confidence,
             metadata=metadata,
         )
         self.store.add(record)

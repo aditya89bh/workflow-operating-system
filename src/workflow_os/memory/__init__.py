@@ -9,6 +9,13 @@ from workflow_os.memory.actors import (
     step_actor,
     workflow_owner,
 )
+from workflow_os.memory.confidence import (
+    CONFIDENCE_BY_EVENT_TYPE,
+    HIGH_CONFIDENCE,
+    LOW_CONFIDENCE,
+    MEDIUM_CONFIDENCE,
+    confidence_for,
+)
 from workflow_os.memory.events import (
     STEP_EVENT_TYPES,
     WORKFLOW_EVENT_TYPES,
@@ -39,6 +46,10 @@ from workflow_os.memory.store import (
 )
 
 __all__ = [
+    "CONFIDENCE_BY_EVENT_TYPE",
+    "HIGH_CONFIDENCE",
+    "LOW_CONFIDENCE",
+    "MEDIUM_CONFIDENCE",
     "OWNER_METADATA_KEY",
     "STEP_EVENT_TYPES",
     "WORKFLOW_EVENT_TYPES",
@@ -51,6 +62,7 @@ __all__ = [
     "SQLiteMemoryStore",
     "TimelineEntry",
     "apply_query",
+    "confidence_for",
     "get_actor_history",
     "get_events_between",
     "get_events_since",
