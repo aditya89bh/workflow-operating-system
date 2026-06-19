@@ -23,7 +23,7 @@ from workflow_os.memory.history import (
 )
 from workflow_os.memory.record import MemoryRecord, new_event_id, utcnow
 from workflow_os.memory.recorder import MemoryRecorder
-from workflow_os.memory.retrieval import get_workflow_history
+from workflow_os.memory.retrieval import get_actor_history, get_workflow_history
 from workflow_os.memory.sqlite_store import SQLiteMemoryStore
 from workflow_os.memory.store import (
     MemoryNotFoundError,
@@ -46,6 +46,7 @@ __all__ = [
     "SQLiteMemoryStore",
     "TimelineEntry",
     "apply_query",
+    "get_actor_history",
     "get_execution_timeline",
     "get_step_records",
     "get_step_timeline",

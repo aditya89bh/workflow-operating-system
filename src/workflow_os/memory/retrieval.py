@@ -25,3 +25,14 @@ def get_workflow_history(
     return store.query(
         MemoryQuery(workflow_id=workflow_id, order=order, limit=limit)
     )
+
+
+def get_actor_history(
+    store: MemoryStore,
+    actor: str,
+    *,
+    order: str = "asc",
+    limit: int | None = None,
+) -> list[MemoryRecord]:
+    """Return the ordered event history attributed to a single actor."""
+    return store.query(MemoryQuery(actor=actor, order=order, limit=limit))
