@@ -7,6 +7,7 @@ from workflow_os.executor import CycleError, WorkflowExecutor
 from workflow_os.operations import (
     WorkflowOperationError,
     pause_workflow,
+    resume_workflow,
     start_workflow,
 )
 from workflow_os.status import WorkflowStatus
@@ -54,6 +55,7 @@ __all__ = [
     "is_valid",
     "migrate",
     "pause_workflow",
+    "resume_workflow",
     "start_workflow",
     "transition_step",
     "validate",

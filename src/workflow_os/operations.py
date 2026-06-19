@@ -44,3 +44,14 @@ def pause_workflow(workflow: Workflow) -> Workflow:
         )
     workflow.status = WorkflowStatus.PAUSED
     return workflow
+
+
+def resume_workflow(workflow: Workflow) -> Workflow:
+    """Resume a paused workflow, moving it back to the running state."""
+    if workflow.status is not WorkflowStatus.PAUSED:
+        raise WorkflowOperationError(
+            f"only paused workflows can be resumed, "
+            f"current state is {workflow.status.value!r}"
+        )
+    workflow.status = WorkflowStatus.RUNNING
+    return workflow

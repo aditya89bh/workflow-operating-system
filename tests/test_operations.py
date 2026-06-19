@@ -7,6 +7,7 @@ from workflow_os import (
     WorkflowStep,
     WorkflowValidationError,
     pause_workflow,
+    resume_workflow,
     start_workflow,
 )
 
@@ -54,3 +55,18 @@ def test_cannot_pause_non_running_workflow():
     wf = make_workflow(WorkflowStatus.DRAFT)
     with pytest.raises(WorkflowOperationError):
         pause_workflow(wf)
+
+
+def test_resume_paused_workflow():
+    wf = make_workflow(WorkflowStatus.DRAFT)
+    start_workflow(wf)
+    pause_workflow(wf)
+    resume_workflow(wf)
+    assert wf.status is WorkflowStatus.RUNNING
+
+
+def test_cannot_resume_non_paused_workflow():
+    wf = make_workflow(WorkflowStatus.DRAFT)
+    start_workflow(wf)
+    with pytest.raises(WorkflowOperationError):
+        resume_workflow(wf)
