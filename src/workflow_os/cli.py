@@ -21,6 +21,7 @@ import argparse
 from collections.abc import Sequence
 from pathlib import Path
 
+from workflow_os.executor import WorkflowExecutor
 from workflow_os.fileio import export_workflow, import_workflow
 from workflow_os.operations import (
     complete_workflow,
@@ -30,9 +31,11 @@ from workflow_os.operations import (
 )
 from workflow_os.persistence import workflow_to_json
 from workflow_os.step import WorkflowStep
+from workflow_os.transitions import StepStatus, transition_step
 from workflow_os.workflow import Workflow
 
 DEFAULT_STORE = ".workflow_store"
+DEFAULT_DEMO_WORKFLOW = "examples/employee_onboarding.json"
 
 
 def _store_dir(args: argparse.Namespace) -> Path:
@@ -110,6 +113,22 @@ def cmd_complete(args: argparse.Namespace) -> int:
     return _apply(args, complete_workflow)
 
 
+def cmd_demo(args: argparse.Namespace) -> int:
+    workflow = import_workflow(args.workflow)
+    print(f"running workflow {workflow.name!r} ({workflow.id})")
+
+    order = WorkflowExecutor(workflow).execution_order()
+    start_workflow(workflow)
+    for step in order:
+        transition_step(step, StepStatus.RUNNING)
+        transition_step(step, StepStatus.COMPLETED)
+        print(f"  done: {step.id} - {step.name}")
+
+    complete_workflow(workflow)
+    print(f"workflow {workflow.id!r} finished with status {workflow.status.value!r}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="workflow-os",
@@ -150,6 +169,14 @@ def build_parser() -> argparse.ArgumentParser:
         action = sub.add_parser(name, help=help_text)
         action.add_argument("id", help="workflow id")
         action.set_defaults(func=func)
+
+    demo = sub.add_parser("demo", help="run an example workflow end to end")
+    demo.add_argument(
+        "--workflow",
+        default=DEFAULT_DEMO_WORKFLOW,
+        help=f"workflow JSON file to run (default: {DEFAULT_DEMO_WORKFLOW})",
+    )
+    demo.set_defaults(func=cmd_demo)
 
     return parser
 

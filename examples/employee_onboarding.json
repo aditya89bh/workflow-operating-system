@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "id": "employee-onboarding",
+  "name": "Employee Onboarding",
+  "description": "Onboard a new employee from offer acceptance to first-day readiness.",
+  "status": "ready",
+  "metadata": {
+    "owner": "people-ops",
+    "department": "engineering"
+  },
+  "steps": [
+    {
+      "id": "create_account",
+      "name": "Create user account",
+      "description": "Provision SSO and directory account.",
+      "status": "pending",
+      "dependencies": [],
+      "assignee": "it",
+      "metadata": {}
+    },
+    {
+      "id": "provision_email",
+      "name": "Provision email",
+      "description": "Create the company mailbox and aliases.",
+      "status": "pending",
+      "dependencies": ["create_account"],
+      "assignee": "it",
+      "metadata": {}
+    },
+    {
+      "id": "assign_laptop",
+      "name": "Assign laptop",
+      "description": "Image and ship a laptop to the new hire.",
+      "status": "pending",
+      "dependencies": ["create_account"],
+      "assignee": "it",
+      "metadata": {}
+    },
+    {
+      "id": "setup_payroll",
+      "name": "Set up payroll",
+      "description": "Register the employee in the payroll system.",
+      "status": "pending",
+      "dependencies": [],
+      "assignee": "hr",
+      "metadata": {}
+    },
+    {
+      "id": "welcome_meeting",
+      "name": "Schedule welcome meeting",
+      "description": "Book the first-day welcome and orientation session.",
+      "status": "pending",
+      "dependencies": ["provision_email", "assign_laptop", "setup_payroll"],
+      "assignee": "manager",
+      "metadata": {}
+    }
+  ]
+}

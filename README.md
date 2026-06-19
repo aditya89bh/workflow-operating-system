@@ -21,6 +21,24 @@ completed, failed, cancelled).
 pip install -e .
 ```
 
+## Quickstart
+
+Run the bundled employee-onboarding example end to end:
+
+```bash
+workflow-os demo
+# or, without installing:
+PYTHONPATH=src python -m workflow_os demo
+```
+
+Create and drive your own workflow:
+
+```bash
+workflow-os create --id release --name "Release" --step "build:Build" --step "ship:Ship"
+workflow-os start release
+workflow-os show release
+```
+
 ## Project layout
 
 ```
