@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from workflow_os.step import WorkflowStep
+
 
 @dataclass
 class Workflow:
@@ -22,6 +24,6 @@ class Workflow:
     id: str
     name: str
     description: str = ""
-    steps: list = field(default_factory=list)
+    steps: list[WorkflowStep] = field(default_factory=list)
     status: str = "draft"
     metadata: dict[str, Any] = field(default_factory=dict)
