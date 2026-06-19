@@ -17,6 +17,11 @@ from workflow_os.persistence import (
     workflow_to_dict,
     workflow_to_json,
 )
+from workflow_os.repository import (
+    InMemoryWorkflowRepository,
+    WorkflowNotFoundError,
+    WorkflowRepository,
+)
 from workflow_os.status import WorkflowStatus
 from workflow_os.step import WorkflowStep
 from workflow_os.transitions import (
@@ -46,12 +51,15 @@ __version__ = "0.1.0"
 __all__ = [
     "CURRENT_SCHEMA_VERSION",
     "CycleError",
+    "InMemoryWorkflowRepository",
     "SchemaVersionError",
     "StepStatus",
     "StepTransitionError",
     "Workflow",
     "WorkflowExecutor",
+    "WorkflowNotFoundError",
     "WorkflowOperationError",
+    "WorkflowRepository",
     "WorkflowStatus",
     "WorkflowStep",
     "WorkflowValidationError",
