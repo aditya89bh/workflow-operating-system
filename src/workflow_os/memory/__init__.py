@@ -12,6 +12,8 @@ from workflow_os.memory.events import (
 from workflow_os.memory.history import (
     TimelineEntry,
     get_execution_timeline,
+    get_step_records,
+    get_step_timeline,
     get_workflow_records,
 )
 from workflow_os.memory.record import MemoryRecord, new_event_id, utcnow
@@ -38,6 +40,8 @@ __all__ = [
     "TimelineEntry",
     "apply_query",
     "get_execution_timeline",
+    "get_step_records",
+    "get_step_timeline",
     "get_workflow_records",
     "matches",
     "new_event_id",

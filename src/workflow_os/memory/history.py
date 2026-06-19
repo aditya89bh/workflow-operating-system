@@ -56,3 +56,33 @@ def get_execution_timeline(
 def get_workflow_records(store: MemoryStore, workflow_id: str) -> list[MemoryRecord]:
     """Return all recorded events for a workflow, ordered by timestamp."""
     return store.query(MemoryQuery(workflow_id=workflow_id))
+
+
+def get_step_records(
+    store: MemoryStore, workflow_id: str, step_id: str
+) -> list[MemoryRecord]:
+    """Return all recorded events for a single step, ordered by timestamp."""
+    return store.query(MemoryQuery(workflow_id=workflow_id, step_id=step_id))
+
+
+def get_step_timeline(
+    store: MemoryStore, workflow_id: str, step_id: str
+) -> list[TimelineEntry]:
+    """Return the ordered execution timeline for a single step.
+
+    Offsets are measured from the first recorded event for the step, so each
+    step timeline starts at zero.
+    """
+    records = get_step_records(store, workflow_id, step_id)
+    if not records:
+        return []
+    start = records[0].timestamp
+    return [
+        TimelineEntry(
+            timestamp=record.timestamp,
+            event_type=record.event_type,
+            step_id=record.step_id,
+            offset_seconds=(record.timestamp - start).total_seconds(),
+        )
+        for record in records
+    ]
