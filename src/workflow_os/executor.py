@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from workflow_os.status import WorkflowStatus
 from workflow_os.step import WorkflowStep
+from workflow_os.transitions import StepStatus, transition_step
 from workflow_os.validation import validate
 from workflow_os.workflow import Workflow
 
@@ -64,6 +65,6 @@ class WorkflowExecutor:
         order = self.execution_order()
         self.workflow.status = WorkflowStatus.RUNNING
         for step in order:
-            step.status = "running"
-            step.status = "completed"
+            transition_step(step, StepStatus.RUNNING)
+            transition_step(step, StepStatus.COMPLETED)
         return self.workflow

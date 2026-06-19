@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from workflow_os.transitions import StepStatus
+
 
 @dataclass
 class WorkflowStep:
@@ -23,7 +25,7 @@ class WorkflowStep:
     id: str
     name: str
     description: str = ""
-    status: str = "pending"
+    status: StepStatus = StepStatus.PENDING
     dependencies: list[str] = field(default_factory=list)
     assignee: str | None = None
     metadata: dict[str, Any] = field(default_factory=dict)
