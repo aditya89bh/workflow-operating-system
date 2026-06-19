@@ -28,6 +28,12 @@ from workflow_os.memory.history import (
     get_step_timeline,
     get_workflow_records,
 )
+from workflow_os.memory.pruning import (
+    prune_by_max_age,
+    prune_older_than,
+    prune_to_max_count,
+    prune_workflow,
+)
 from workflow_os.memory.record import MemoryRecord, new_event_id, utcnow
 from workflow_os.memory.recorder import MemoryRecorder
 from workflow_os.memory.retrieval import (
@@ -73,6 +79,10 @@ __all__ = [
     "get_workflow_records",
     "matches",
     "new_event_id",
+    "prune_by_max_age",
+    "prune_older_than",
+    "prune_to_max_count",
+    "prune_workflow",
     "step_actor",
     "utcnow",
     "workflow_owner",
