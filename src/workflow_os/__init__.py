@@ -6,6 +6,7 @@ A small, dependency-free library to model, validate, and execute workflows.
 from workflow_os.executor import CycleError, WorkflowExecutor
 from workflow_os.operations import (
     WorkflowOperationError,
+    complete_workflow,
     pause_workflow,
     resume_workflow,
     start_workflow,
@@ -51,6 +52,7 @@ __all__ = [
     "__version__",
     "available_transitions",
     "can_transition",
+    "complete_workflow",
     "is_supported_version",
     "is_valid",
     "migrate",

@@ -1,11 +1,14 @@
 import pytest
 
 from workflow_os import (
+    StepStatus,
     Workflow,
+    WorkflowExecutor,
     WorkflowOperationError,
     WorkflowStatus,
     WorkflowStep,
     WorkflowValidationError,
+    complete_workflow,
     pause_workflow,
     resume_workflow,
     start_workflow,
@@ -70,3 +73,36 @@ def test_cannot_resume_non_paused_workflow():
     start_workflow(wf)
     with pytest.raises(WorkflowOperationError):
         resume_workflow(wf)
+
+
+def test_complete_when_all_required_steps_done():
+    wf = make_workflow(WorkflowStatus.DRAFT)
+    WorkflowExecutor(wf).run()
+    complete_workflow(wf)
+    assert wf.status is WorkflowStatus.COMPLETED
+
+
+def test_cannot_complete_with_pending_required_step():
+    wf = make_workflow(WorkflowStatus.DRAFT)
+    start_workflow(wf)
+    with pytest.raises(WorkflowOperationError):
+        complete_workflow(wf)
+
+
+def test_optional_steps_do_not_block_completion():
+    wf = Workflow(
+        id="wf",
+        name="Onboarding",
+        status=WorkflowStatus.RUNNING,
+        steps=[
+            WorkflowStep(id="s1", name="Required", status=StepStatus.COMPLETED),
+            WorkflowStep(
+                id="s2",
+                name="Optional",
+                status=StepStatus.PENDING,
+                metadata={"optional": True},
+            ),
+        ],
+    )
+    complete_workflow(wf)
+    assert wf.status is WorkflowStatus.COMPLETED
