@@ -21,6 +21,9 @@ dependencies = []
 [project.optional-dependencies]
 dev = ["pytest>=7", "ruff>=0.4", "build>=1.0"]
 
+[project.scripts]
+workflow-os = "workflow_os.cli:main"
+
 [tool.setuptools]
 package-dir = { "" = "src" }
 
