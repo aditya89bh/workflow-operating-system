@@ -10,6 +10,7 @@ from workflow_os.memory.events import (
     MemoryEventType,
 )
 from workflow_os.memory.record import MemoryRecord, new_event_id, utcnow
+from workflow_os.memory.sqlite_store import SQLiteMemoryStore
 from workflow_os.memory.store import (
     MemoryNotFoundError,
     MemoryQuery,
@@ -26,6 +27,7 @@ __all__ = [
     "MemoryQuery",
     "MemoryRecord",
     "MemoryStore",
+    "SQLiteMemoryStore",
     "apply_query",
     "matches",
     "new_event_id",
