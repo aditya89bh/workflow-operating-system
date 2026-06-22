@@ -33,6 +33,14 @@ from workflow_os.agents.logs import (
 )
 from workflow_os.agents.memory_agent import MemoryAgent
 from workflow_os.agents.messaging import Message, MessageBus, new_message_id
+from workflow_os.agents.metrics import (
+    CollaborationMetrics,
+    compute_collaboration_metrics,
+    delegation_statistics,
+    handoff_count,
+    message_count,
+    task_completion_rate,
+)
 from workflow_os.agents.planner import PlannerAgent
 from workflow_os.agents.record import Agent, new_agent_id
 from workflow_os.agents.registry import (
@@ -55,6 +63,7 @@ __all__ = [
     "CollaborationEntry",
     "CollaborationEventType",
     "CollaborationLog",
+    "CollaborationMetrics",
     "ComplianceAgent",
     "ComplianceResult",
     "CoordinationError",
@@ -76,10 +85,15 @@ __all__ = [
     "TaskNotFoundError",
     "actions_performed",
     "build_accountability",
+    "compute_collaboration_metrics",
+    "delegation_statistics",
+    "handoff_count",
+    "message_count",
     "new_agent_id",
     "new_message_id",
     "new_task_id",
     "normalize_role",
     "ownership_history",
     "responsibility_chain",
+    "task_completion_rate",
 ]
