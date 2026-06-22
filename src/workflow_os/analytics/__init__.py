@@ -25,6 +25,10 @@ from workflow_os.analytics.failure import (
     failed_workflow_ids,
     workflow_failure_metrics,
 )
+from workflow_os.analytics.step_duration import (
+    step_duration_metrics,
+    step_durations,
+)
 
 __all__ = [
     "CompletionMetrics",
@@ -35,6 +39,8 @@ __all__ = [
     "failed_workflow_ids",
     "observed_workflow_ids",
     "started_workflow_ids",
+    "step_duration_metrics",
+    "step_durations",
     "summarize_durations",
     "workflow_completion_metrics",
     "workflow_durations",
