@@ -24,6 +24,7 @@ from workflow_os.learning.continuous_improvement import (
     continuous_improvement_report,
     improvement_opportunities,
 )
+from workflow_os.learning.dashboard import organizational_dashboard
 from workflow_os.learning.exception_patterns import (
     chronic_workflow_problems,
     recurring_exception_insights,
@@ -95,6 +96,7 @@ __all__ = [
     "maturity_level",
     "most_reliable_workflows",
     "new_insight_id",
+    "organizational_dashboard",
     "organizational_insights",
     "organizational_maturity_score",
     "new_recommendation_id",
