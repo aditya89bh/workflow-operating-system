@@ -56,6 +56,11 @@ from workflow_os.learning.recommendation import (
     Recommendation,
     new_recommendation_id,
 )
+from workflow_os.learning.reports import (
+    LearningReport,
+    learning_report,
+    organizational_insights,
+)
 from workflow_os.learning.sop_recommendations import sop_update_recommendations
 from workflow_os.learning.success import (
     consistently_healthy_workflows,
@@ -69,6 +74,7 @@ from workflow_os.learning.workflow_recommendations import (
 
 __all__ = [
     "ContinuousImprovementReport",
+    "LearningReport",
     "MaturityScore",
     "OrganizationalInsight",
     "Recommendation",
@@ -85,9 +91,11 @@ __all__ = [
     "frequently_failing_workflows",
     "highest_success_rate_workflows",
     "improvement_opportunities",
+    "learning_report",
     "maturity_level",
     "most_reliable_workflows",
     "new_insight_id",
+    "organizational_insights",
     "organizational_maturity_score",
     "new_recommendation_id",
     "recurring_bottlenecks",
