@@ -18,6 +18,10 @@ from workflow_os.exception.deadline import (
     detect_deadline_failure,
     detect_deadline_failures,
 )
+from workflow_os.exception.recommendation import (
+    recommend_action,
+    recommend_recovery,
+)
 from workflow_os.exception.record import (
     ExceptionRecord,
     new_exception_id,
@@ -78,6 +82,8 @@ __all__ = [
     "new_recovery_id",
     "normalize_severity",
     "normalize_type",
+    "recommend_action",
+    "recommend_recovery",
     "severity_rank",
     "utcnow",
 ]
