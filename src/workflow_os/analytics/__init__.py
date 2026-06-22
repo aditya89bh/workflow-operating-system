@@ -26,6 +26,7 @@ from workflow_os.analytics.failure import (
     failed_workflow_ids,
     workflow_failure_metrics,
 )
+from workflow_os.analytics.slow_steps import SlowStep, slow_steps, slowest_steps
 from workflow_os.analytics.step_duration import (
     step_duration_metrics,
     step_durations,
@@ -36,11 +37,14 @@ __all__ = [
     "CompletionMetrics",
     "DurationMetrics",
     "FailureMetrics",
+    "SlowStep",
     "completed_workflow_ids",
     "detect_bottlenecks",
     "execution_duration_metrics",
     "failed_workflow_ids",
     "observed_workflow_ids",
+    "slow_steps",
+    "slowest_steps",
     "started_workflow_ids",
     "step_duration_metrics",
     "step_durations",
