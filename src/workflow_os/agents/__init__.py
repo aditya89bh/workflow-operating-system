@@ -20,6 +20,7 @@ from workflow_os.agents.delegation import (
 )
 from workflow_os.agents.execution import ExecutionAgent, ExecutionEvent
 from workflow_os.agents.memory_agent import MemoryAgent
+from workflow_os.agents.messaging import Message, MessageBus, new_message_id
 from workflow_os.agents.planner import PlannerAgent
 from workflow_os.agents.record import Agent, new_agent_id
 from workflow_os.agents.registry import (
@@ -49,6 +50,8 @@ __all__ = [
     "ExecutionEvent",
     "MemoryAccess",
     "MemoryAgent",
+    "Message",
+    "MessageBus",
     "PlannerAgent",
     "SharedMemory",
     "SharedWorkspace",
@@ -56,6 +59,7 @@ __all__ = [
     "TaskDelegation",
     "TaskNotFoundError",
     "new_agent_id",
+    "new_message_id",
     "new_task_id",
     "normalize_role",
 ]
