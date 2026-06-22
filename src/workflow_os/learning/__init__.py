@@ -40,6 +40,9 @@ from workflow_os.learning.success import (
     most_reliable_workflows,
     successful_workflow_insights,
 )
+from workflow_os.learning.workflow_recommendations import (
+    workflow_improvement_recommendations,
+)
 
 __all__ = [
     "OrganizationalInsight",
@@ -62,5 +65,6 @@ __all__ = [
     "repeated_exceptions",
     "successful_workflow_insights",
     "unstable_workflows",
+    "workflow_improvement_recommendations",
     "workflow_run_stats",
 ]
