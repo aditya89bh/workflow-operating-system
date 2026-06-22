@@ -31,6 +31,11 @@ from workflow_os.decision.search import (
     search_decisions,
 )
 from workflow_os.decision.sqlite_store import SQLiteDecisionStore
+from workflow_os.decision.statistics import (
+    ActorDecisionStats,
+    DecisionStatistics,
+    compute_decision_statistics,
+)
 from workflow_os.decision.store import (
     DecisionList,
     DecisionNotFoundError,
@@ -52,6 +57,7 @@ __all__ = [
     "ALL_DECISION_TYPES",
     "RESOLVED_OUTCOMES",
     "VALID_OUTCOMES",
+    "ActorDecisionStats",
     "DecisionExplanation",
     "DecisionList",
     "DecisionNotFoundError",
@@ -59,6 +65,7 @@ __all__ = [
     "DecisionQuery",
     "DecisionRecord",
     "DecisionRecorder",
+    "DecisionStatistics",
     "DecisionStore",
     "DecisionTimelineEntry",
     "DecisionType",
@@ -66,6 +73,7 @@ __all__ = [
     "SQLiteDecisionStore",
     "apply_query",
     "build_timeline",
+    "compute_decision_statistics",
     "explain_decision",
     "explain_decision_text",
     "get_actor_decision_timeline",
