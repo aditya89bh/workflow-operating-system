@@ -48,6 +48,12 @@ from workflow_os.agents.registry import (
     AgentNotFoundError,
     AgentRegistry,
 )
+from workflow_os.agents.reports import (
+    AgentPerformance,
+    PerformanceReport,
+    build_performance_report,
+    workload_per_agent,
+)
 from workflow_os.agents.roles import ALL_AGENT_ROLES, AgentRole, normalize_role
 from workflow_os.agents.shared_memory import MemoryAccess, SharedMemory
 from workflow_os.agents.workspace import SharedWorkspace
@@ -56,6 +62,7 @@ __all__ = [
     "ALL_AGENT_ROLES",
     "Agent",
     "AgentAccountability",
+    "AgentPerformance",
     "AgentAlreadyRegisteredError",
     "AgentNotFoundError",
     "AgentRegistry",
@@ -77,6 +84,7 @@ __all__ = [
     "MemoryAgent",
     "Message",
     "MessageBus",
+    "PerformanceReport",
     "PlannerAgent",
     "SharedMemory",
     "SharedWorkspace",
@@ -85,6 +93,7 @@ __all__ = [
     "TaskNotFoundError",
     "actions_performed",
     "build_accountability",
+    "build_performance_report",
     "compute_collaboration_metrics",
     "delegation_statistics",
     "handoff_count",
@@ -96,4 +105,5 @@ __all__ = [
     "ownership_history",
     "responsibility_chain",
     "task_completion_rate",
+    "workload_per_agent",
 ]
