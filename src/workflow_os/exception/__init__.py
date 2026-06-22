@@ -13,6 +13,13 @@ from workflow_os.exception.classification import (
     ExceptionType,
     normalize_type,
 )
+from workflow_os.exception.clustering import (
+    cluster_by_recovery_outcome,
+    cluster_by_severity,
+    cluster_by_type,
+    cluster_by_workflow,
+    recovery_outcome,
+)
 from workflow_os.exception.deadline import (
     Deadline,
     detect_deadline_failure,
@@ -74,6 +81,10 @@ __all__ = [
     "RetryStrategy",
     "SQLiteExceptionStore",
     "apply_query",
+    "cluster_by_recovery_outcome",
+    "cluster_by_severity",
+    "cluster_by_type",
+    "cluster_by_workflow",
     "count_retries",
     "detect_deadline_failure",
     "detect_deadline_failures",
@@ -89,6 +100,7 @@ __all__ = [
     "normalize_type",
     "recommend_action",
     "recommend_recovery",
+    "recovery_outcome",
     "severity_rank",
     "utcnow",
 ]
