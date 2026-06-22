@@ -5,6 +5,12 @@ retrieval, search, explanation, replay, and analysis on top of them. It builds
 on the organizational memory layer without modifying it.
 """
 
+from workflow_os.decision.comparison import (
+    ComparisonReport,
+    compare_actors,
+    compare_successful_vs_failed,
+    compare_workflows,
+)
 from workflow_os.decision.explanation import (
     DecisionExplanation,
     explain_decision,
@@ -58,6 +64,7 @@ __all__ = [
     "RESOLVED_OUTCOMES",
     "VALID_OUTCOMES",
     "ActorDecisionStats",
+    "ComparisonReport",
     "DecisionExplanation",
     "DecisionList",
     "DecisionNotFoundError",
@@ -73,6 +80,9 @@ __all__ = [
     "SQLiteDecisionStore",
     "apply_query",
     "build_timeline",
+    "compare_actors",
+    "compare_successful_vs_failed",
+    "compare_workflows",
     "compute_decision_statistics",
     "explain_decision",
     "explain_decision_text",
