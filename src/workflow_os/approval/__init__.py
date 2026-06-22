@@ -7,6 +7,11 @@ decision, and SOP layers without modifying them, and is fully deterministic and
 rule-based.
 """
 
+from workflow_os.approval.audit import (
+    ApprovalAuditEvent,
+    ApprovalAuditLog,
+    ApprovalEventType,
+)
 from workflow_os.approval.delegation import (
     DelegationEvent,
     active_delegations,
@@ -76,7 +81,10 @@ from workflow_os.approval.timeout import (
 __all__ = [
     "ACTIVE_STATES",
     "TERMINAL_STATES",
+    "ApprovalAuditEvent",
+    "ApprovalAuditLog",
     "ApprovalError",
+    "ApprovalEventType",
     "ApprovalList",
     "ApprovalNotFoundError",
     "ApprovalPolicy",
