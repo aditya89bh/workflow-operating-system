@@ -7,6 +7,13 @@ wrappers - that assign, delegate, communicate, coordinate, audit, and measure
 collaboration. It builds on the earlier layers without modifying them.
 """
 
+from workflow_os.agents.accountability import (
+    AgentAccountability,
+    actions_performed,
+    build_accountability,
+    ownership_history,
+    responsibility_chain,
+)
 from workflow_os.agents.compliance import ComplianceAgent, ComplianceResult
 from workflow_os.agents.coordinator import CoordinationError, CoordinatorAgent
 from workflow_os.agents.delegation import (
@@ -40,6 +47,7 @@ from workflow_os.agents.workspace import SharedWorkspace
 __all__ = [
     "ALL_AGENT_ROLES",
     "Agent",
+    "AgentAccountability",
     "AgentAlreadyRegisteredError",
     "AgentNotFoundError",
     "AgentRegistry",
@@ -66,8 +74,12 @@ __all__ = [
     "TaskAssignment",
     "TaskDelegation",
     "TaskNotFoundError",
+    "actions_performed",
+    "build_accountability",
     "new_agent_id",
     "new_message_id",
     "new_task_id",
     "normalize_role",
+    "ownership_history",
+    "responsibility_chain",
 ]
