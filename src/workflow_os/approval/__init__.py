@@ -7,6 +7,11 @@ decision, and SOP layers without modifying them, and is fully deterministic and
 rule-based.
 """
 
+from workflow_os.approval.policy import (
+    ApprovalPolicy,
+    PolicyType,
+    new_policy_id,
+)
 from workflow_os.approval.record import (
     ApprovalRequest,
     new_approval_id,
@@ -25,11 +30,14 @@ from workflow_os.approval.states import (
 __all__ = [
     "ACTIVE_STATES",
     "TERMINAL_STATES",
+    "ApprovalPolicy",
     "ApprovalRequest",
     "ApprovalState",
+    "PolicyType",
     "is_active",
     "is_terminal",
     "new_approval_id",
+    "new_policy_id",
     "record_response",
     "set_state",
     "utcnow",
