@@ -30,6 +30,13 @@ from workflow_os.decision.record import (
     utcnow,
 )
 from workflow_os.decision.recorder import DecisionRecorder
+from workflow_os.decision.replay import (
+    DecisionReplay,
+    ReplayEvent,
+    reconstruct_decision_timeline,
+    replay_actor_decisions,
+    replay_workflow_decisions,
+)
 from workflow_os.decision.search import (
     search_by_decision_text,
     search_by_outcome,
@@ -72,11 +79,13 @@ __all__ = [
     "DecisionQuery",
     "DecisionRecord",
     "DecisionRecorder",
+    "DecisionReplay",
     "DecisionStatistics",
     "DecisionStore",
     "DecisionTimelineEntry",
     "DecisionType",
     "InvalidOutcomeError",
+    "ReplayEvent",
     "SQLiteDecisionStore",
     "apply_query",
     "build_timeline",
@@ -92,6 +101,9 @@ __all__ = [
     "matches",
     "new_decision_id",
     "normalize_outcome",
+    "reconstruct_decision_timeline",
+    "replay_actor_decisions",
+    "replay_workflow_decisions",
     "search_by_decision_text",
     "search_by_outcome",
     "search_by_rationale",
