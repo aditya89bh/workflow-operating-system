@@ -23,6 +23,7 @@ from workflow_os.exception.severity import (
     normalize_severity,
     severity_rank,
 )
+from workflow_os.exception.sqlite_store import SQLiteExceptionStore
 from workflow_os.exception.store import (
     ExceptionList,
     ExceptionNotFoundError,
@@ -44,6 +45,7 @@ __all__ = [
     "ExceptionStore",
     "ExceptionType",
     "InMemoryExceptionStore",
+    "SQLiteExceptionStore",
     "apply_query",
     "matches",
     "new_exception_id",
