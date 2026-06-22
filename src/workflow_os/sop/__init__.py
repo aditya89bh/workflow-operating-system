@@ -22,6 +22,7 @@ from workflow_os.sop.store import (
     apply_query,
     matches,
 )
+from workflow_os.sop.versioning import SOPVersion, SOPVersionHistory
 
 __all__ = [
     "ACTIVE_STATUSES",
@@ -31,6 +32,8 @@ __all__ = [
     "SOPRecord",
     "SOPStatus",
     "SOPStore",
+    "SOPVersion",
+    "SOPVersionHistory",
     "SQLiteSOPStore",
     "apply_query",
     "matches",
