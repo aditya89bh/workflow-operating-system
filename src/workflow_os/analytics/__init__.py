@@ -54,6 +54,7 @@ from workflow_os.analytics.step_duration import (
     step_duration_metrics,
     step_durations,
 )
+from workflow_os.analytics.team_stats import TeamStatistics, team_statistics
 
 __all__ = [
     "Bottleneck",
@@ -63,6 +64,7 @@ __all__ = [
     "FailureMetrics",
     "Scorecard",
     "SlowStep",
+    "TeamStatistics",
     "WorkflowComparison",
     "WorkflowComparisonRow",
     "WorkflowStatistics",
@@ -83,6 +85,7 @@ __all__ = [
     "step_duration_metrics",
     "step_durations",
     "summarize_durations",
+    "team_statistics",
     "workflow_completion_metrics",
     "workflow_durations",
     "workflow_failure_metrics",
