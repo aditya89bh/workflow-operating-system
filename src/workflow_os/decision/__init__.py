@@ -10,9 +10,12 @@ from workflow_os.decision.record import (
     new_decision_id,
     utcnow,
 )
+from workflow_os.decision.types import ALL_DECISION_TYPES, DecisionType
 
 __all__ = [
+    "ALL_DECISION_TYPES",
     "DecisionRecord",
+    "DecisionType",
     "new_decision_id",
     "utcnow",
 ]
