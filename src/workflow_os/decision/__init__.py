@@ -10,12 +10,26 @@ from workflow_os.decision.record import (
     new_decision_id,
     utcnow,
 )
+from workflow_os.decision.store import (
+    DecisionList,
+    DecisionNotFoundError,
+    DecisionQuery,
+    DecisionStore,
+    apply_query,
+    matches,
+)
 from workflow_os.decision.types import ALL_DECISION_TYPES, DecisionType
 
 __all__ = [
     "ALL_DECISION_TYPES",
+    "DecisionList",
+    "DecisionNotFoundError",
+    "DecisionQuery",
     "DecisionRecord",
+    "DecisionStore",
     "DecisionType",
+    "apply_query",
+    "matches",
     "new_decision_id",
     "utcnow",
 ]
