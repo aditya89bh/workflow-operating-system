@@ -7,6 +7,12 @@ and maturity scores. It only consumes the outputs of those layers; there is no
 machine learning, prediction, autonomous optimization, or external service here.
 """
 
+from workflow_os.learning.automation import (
+    automation_opportunity_recommendations,
+    repeated_approval_recommendations,
+    repeated_recovery_recommendations,
+    repetitive_task_recommendations,
+)
 from workflow_os.learning.exception_patterns import (
     chronic_workflow_problems,
     recurring_exception_insights,
@@ -49,6 +55,7 @@ __all__ = [
     "OrganizationalInsight",
     "Recommendation",
     "WorkflowRunStats",
+    "automation_opportunity_recommendations",
     "chronic_workflow_problems",
     "consistently_healthy_workflows",
     "failure_hotspots",
@@ -63,7 +70,10 @@ __all__ = [
     "recurring_exceptions",
     "recurring_recovery_actions",
     "recurring_workflows",
+    "repeated_approval_recommendations",
     "repeated_exceptions",
+    "repeated_recovery_recommendations",
+    "repetitive_task_recommendations",
     "sop_update_recommendations",
     "successful_workflow_insights",
     "unstable_workflows",
