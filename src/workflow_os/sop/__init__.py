@@ -31,6 +31,13 @@ from workflow_os.sop.change_history import (
     SOPChangeLog,
     diff_fields,
 )
+from workflow_os.sop.exceptions import (
+    SOPExceptionRecord,
+    SOPExceptionStore,
+    capture_exception,
+    capture_exception_from_decision,
+    new_exception_id,
+)
 from workflow_os.sop.lessons import (
     LessonRecord,
     LessonStore,
@@ -87,6 +94,8 @@ __all__ = [
     "SOPAuthorship",
     "SOPChange",
     "SOPChangeLog",
+    "SOPExceptionRecord",
+    "SOPExceptionStore",
     "SOPList",
     "SOPNotFoundError",
     "SOPQuery",
@@ -102,6 +111,8 @@ __all__ = [
     "add_reviewer",
     "apply_query",
     "capture_best_practice",
+    "capture_exception",
+    "capture_exception_from_decision",
     "capture_lesson",
     "diff_fields",
     "get_authorship",
@@ -109,6 +120,7 @@ __all__ = [
     "get_sops_for_workflow_type",
     "get_workflow_types_for_sop",
     "matches",
+    "new_exception_id",
     "new_lesson_id",
     "new_practice_id",
     "new_sop_id",
