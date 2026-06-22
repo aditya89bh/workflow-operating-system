@@ -7,6 +7,12 @@ decision, and SOP layers without modifying them, and is fully deterministic and
 rule-based.
 """
 
+from workflow_os.approval.delegation import (
+    DelegationEvent,
+    active_delegations,
+    delegate,
+    delegation_history,
+)
 from workflow_os.approval.escalation import (
     EscalationEvent,
     EscalationRule,
@@ -78,6 +84,7 @@ __all__ = [
     "ApprovalRequest",
     "ApprovalState",
     "ApprovalStore",
+    "DelegationEvent",
     "EscalationEvent",
     "EscalationRule",
     "InMemoryApprovalStore",
@@ -89,9 +96,12 @@ __all__ = [
     "SQLiteApprovalStore",
     "SequentialApprovalWorkflow",
     "SingleApproverWorkflow",
+    "active_delegations",
     "aggregate_state",
     "apply_query",
     "deadline",
+    "delegate",
+    "delegation_history",
     "escalate",
     "escalate_if_overdue",
     "escalation_history",
