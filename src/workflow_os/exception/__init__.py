@@ -23,13 +23,29 @@ from workflow_os.exception.severity import (
     normalize_severity,
     severity_rank,
 )
+from workflow_os.exception.store import (
+    ExceptionList,
+    ExceptionNotFoundError,
+    ExceptionQuery,
+    ExceptionStore,
+    InMemoryExceptionStore,
+    apply_query,
+    matches,
+)
 
 __all__ = [
     "ALL_EXCEPTION_TYPES",
     "ALL_SEVERITIES",
+    "ExceptionList",
+    "ExceptionNotFoundError",
+    "ExceptionQuery",
     "ExceptionRecord",
     "ExceptionSeverity",
+    "ExceptionStore",
     "ExceptionType",
+    "InMemoryExceptionStore",
+    "apply_query",
+    "matches",
     "new_exception_id",
     "normalize_severity",
     "normalize_type",
