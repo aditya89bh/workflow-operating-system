@@ -25,6 +25,7 @@ from workflow_os.exception.deadline import (
     detect_deadline_failure,
     detect_deadline_failures,
 )
+from workflow_os.exception.demo import run_demo
 from workflow_os.exception.effectiveness import (
     EffectivenessMetrics,
     compute_effectiveness,
@@ -124,6 +125,7 @@ __all__ = [
     "recovery_success_rate",
     "recurring_failures",
     "retry_success_rate",
+    "run_demo",
     "severity_rank",
     "utcnow",
     "workflow_risk_reports",
