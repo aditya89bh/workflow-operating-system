@@ -70,6 +70,7 @@ from workflow_os.sop.record import (
     new_sop_id,
     utcnow,
 )
+from workflow_os.sop.scoring import SOPScore, score_sop, score_sops
 from workflow_os.sop.search import (
     search_by_tags,
     search_by_title,
@@ -108,6 +109,7 @@ __all__ = [
     "SOPExceptionRecord",
     "SOPExceptionStore",
     "SOPList",
+    "SOPScore",
     "SOPNotFoundError",
     "SOPQuery",
     "SOPRecord",
@@ -142,6 +144,8 @@ __all__ = [
     "new_sop_id",
     "recommend_sop",
     "recommend_sops",
+    "score_sop",
+    "score_sops",
     "search_by_tags",
     "search_by_title",
     "search_by_workflow_type",
