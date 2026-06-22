@@ -62,6 +62,13 @@ from workflow_os.exception.store import (
     apply_query,
     matches,
 )
+from workflow_os.exception.trends import (
+    WorkflowRiskReport,
+    failure_signature,
+    failures_over_time,
+    recurring_failures,
+    workflow_risk_reports,
+)
 
 __all__ = [
     "ALL_EXCEPTION_TYPES",
@@ -80,6 +87,7 @@ __all__ = [
     "RecoveryStatus",
     "RetryStrategy",
     "SQLiteExceptionStore",
+    "WorkflowRiskReport",
     "apply_query",
     "cluster_by_recovery_outcome",
     "cluster_by_severity",
@@ -91,6 +99,8 @@ __all__ = [
     "detect_missing_approvals",
     "detect_missing_resources",
     "detect_stalled_workflows",
+    "failure_signature",
+    "failures_over_time",
     "find_missing_resources",
     "is_stalled",
     "matches",
@@ -101,6 +111,8 @@ __all__ = [
     "recommend_action",
     "recommend_recovery",
     "recovery_outcome",
+    "recurring_failures",
     "severity_rank",
     "utcnow",
+    "workflow_risk_reports",
 ]
