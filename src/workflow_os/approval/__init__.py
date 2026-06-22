@@ -33,6 +33,15 @@ from workflow_os.approval.history import (
     requester_approvals,
     workflow_approvals,
 )
+from workflow_os.approval.metrics import (
+    WorkloadMetrics,
+    approvals_by_actor,
+    average_response_time,
+    compute_workload_metrics,
+    overdue_count,
+    pending_count,
+    response_times,
+)
 from workflow_os.approval.multi import MultiApproverWorkflow, aggregate_state
 from workflow_os.approval.parallel import ParallelApprovalWorkflow
 from workflow_os.approval.policy import (
@@ -111,11 +120,15 @@ __all__ = [
     "SQLiteApprovalStore",
     "SequentialApprovalWorkflow",
     "SingleApproverWorkflow",
+    "WorkloadMetrics",
     "active_delegations",
     "actor_approvals",
     "aggregate_state",
     "apply_query",
+    "approvals_by_actor",
+    "average_response_time",
     "completed_approvals",
+    "compute_workload_metrics",
     "deadline",
     "delegate",
     "delegation_history",
@@ -133,11 +146,14 @@ __all__ = [
     "matches",
     "new_approval_id",
     "new_policy_id",
+    "overdue_count",
     "overdue_reminders",
     "pending_approvals",
+    "pending_count",
     "pending_reminders",
     "record_response",
     "requester_approvals",
+    "response_times",
     "set_state",
     "should_escalate",
     "utcnow",
