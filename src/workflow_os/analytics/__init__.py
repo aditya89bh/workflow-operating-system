@@ -7,6 +7,7 @@ learning, prediction, or recommendation here - every number is computed directly
 from recorded data.
 """
 
+from workflow_os.analytics.bottlenecks import Bottleneck, detect_bottlenecks
 from workflow_os.analytics.completion import (
     CompletionMetrics,
     completed_workflow_ids,
@@ -31,10 +32,12 @@ from workflow_os.analytics.step_duration import (
 )
 
 __all__ = [
+    "Bottleneck",
     "CompletionMetrics",
     "DurationMetrics",
     "FailureMetrics",
     "completed_workflow_ids",
+    "detect_bottlenecks",
     "execution_duration_metrics",
     "failed_workflow_ids",
     "observed_workflow_ids",
