@@ -7,6 +7,7 @@ wrappers - that assign, delegate, communicate, coordinate, audit, and measure
 collaboration. It builds on the earlier layers without modifying them.
 """
 
+from workflow_os.agents.compliance import ComplianceAgent, ComplianceResult
 from workflow_os.agents.coordinator import CoordinationError, CoordinatorAgent
 from workflow_os.agents.execution import ExecutionAgent, ExecutionEvent
 from workflow_os.agents.planner import PlannerAgent
@@ -25,6 +26,8 @@ __all__ = [
     "AgentNotFoundError",
     "AgentRegistry",
     "AgentRole",
+    "ComplianceAgent",
+    "ComplianceResult",
     "CoordinationError",
     "CoordinatorAgent",
     "ExecutionAgent",
