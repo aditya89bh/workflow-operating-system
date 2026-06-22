@@ -6,6 +6,11 @@ decision layers without modifying them. Everything is deterministic and
 rule-based.
 """
 
+from workflow_os.sop.change_history import (
+    SOPChange,
+    SOPChangeLog,
+    diff_fields,
+)
 from workflow_os.sop.record import (
     ACTIVE_STATUSES,
     SOPRecord,
@@ -26,6 +31,8 @@ from workflow_os.sop.versioning import SOPVersion, SOPVersionHistory
 
 __all__ = [
     "ACTIVE_STATUSES",
+    "SOPChange",
+    "SOPChangeLog",
     "SOPList",
     "SOPNotFoundError",
     "SOPQuery",
@@ -36,6 +43,7 @@ __all__ = [
     "SOPVersionHistory",
     "SQLiteSOPStore",
     "apply_query",
+    "diff_fields",
     "matches",
     "new_sop_id",
     "utcnow",
