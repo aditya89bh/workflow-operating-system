@@ -112,6 +112,48 @@ class DecisionRecorder:
             metadata=metadata,
         )
 
+    def record_exception_decision(
+        self,
+        workflow: Workflow,
+        decision: str,
+        *,
+        step: WorkflowStep | None = None,
+        reason: str | None = None,
+        rationale: str = "",
+        alternatives: list[str] | None = None,
+        actor: str | None = None,
+        outcome: str = "pending",
+        confidence: float = 1.0,
+        metadata: dict[str, Any] | None = None,
+    ) -> DecisionRecord:
+        """Record a decision taken during a failure or recovery.
+
+        When ``reason`` is supplied it is stored under ``metadata["reason"]``.
+        The actor defaults to the step assignee (if a step is given) or the
+        workflow owner.
+        """
+        combined: dict[str, Any] = dict(metadata or {})
+        if reason is not None:
+            combined["reason"] = reason
+        if actor is not None:
+            resolved_actor: str | None = actor
+        elif step is not None:
+            resolved_actor = step_actor(workflow, step)
+        else:
+            resolved_actor = workflow_owner(workflow)
+        return self.record_decision(
+            workflow_id=workflow.id,
+            decision=decision,
+            decision_type=DecisionType.EXCEPTION_DECISION.value,
+            rationale=rationale,
+            alternatives=alternatives,
+            step_id=step.id if step is not None else None,
+            actor=resolved_actor,
+            outcome=outcome,
+            confidence=confidence,
+            metadata=combined or None,
+        )
+
     def update_decision_outcome(
         self,
         decision_id: str,
