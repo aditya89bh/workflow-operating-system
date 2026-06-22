@@ -17,6 +17,10 @@ from workflow_os.approval.record import (
     new_approval_id,
     utcnow,
 )
+from workflow_os.approval.single import (
+    ApprovalError,
+    SingleApproverWorkflow,
+)
 from workflow_os.approval.sqlite_store import SQLiteApprovalStore
 from workflow_os.approval.states import (
     ACTIVE_STATES,
@@ -40,6 +44,7 @@ from workflow_os.approval.store import (
 __all__ = [
     "ACTIVE_STATES",
     "TERMINAL_STATES",
+    "ApprovalError",
     "ApprovalList",
     "ApprovalNotFoundError",
     "ApprovalPolicy",
@@ -50,6 +55,7 @@ __all__ = [
     "InMemoryApprovalStore",
     "PolicyType",
     "SQLiteApprovalStore",
+    "SingleApproverWorkflow",
     "apply_query",
     "is_active",
     "is_terminal",
