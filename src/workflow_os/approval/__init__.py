@@ -17,6 +17,7 @@ from workflow_os.approval.record import (
     new_approval_id,
     utcnow,
 )
+from workflow_os.approval.sqlite_store import SQLiteApprovalStore
 from workflow_os.approval.states import (
     ACTIVE_STATES,
     TERMINAL_STATES,
@@ -48,6 +49,7 @@ __all__ = [
     "ApprovalStore",
     "InMemoryApprovalStore",
     "PolicyType",
+    "SQLiteApprovalStore",
     "apply_query",
     "is_active",
     "is_terminal",
