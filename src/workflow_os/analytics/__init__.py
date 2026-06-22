@@ -26,6 +26,10 @@ from workflow_os.analytics.duration import (
     summarize_durations,
     workflow_durations,
 )
+from workflow_os.analytics.execution_summary import (
+    ExecutionSummary,
+    execution_summaries,
+)
 from workflow_os.analytics.failure import (
     FailureMetrics,
     failed_workflow_ids,
@@ -49,6 +53,7 @@ __all__ = [
     "Bottleneck",
     "CompletionMetrics",
     "DurationMetrics",
+    "ExecutionSummary",
     "FailureMetrics",
     "SlowStep",
     "WorkflowComparison",
@@ -60,6 +65,7 @@ __all__ = [
     "counts_by_day",
     "detect_bottlenecks",
     "execution_duration_metrics",
+    "execution_summaries",
     "failed_workflow_ids",
     "observed_workflow_ids",
     "slow_steps",
