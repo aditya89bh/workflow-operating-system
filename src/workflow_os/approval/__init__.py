@@ -18,6 +18,7 @@ from workflow_os.approval.record import (
     new_approval_id,
     utcnow,
 )
+from workflow_os.approval.sequential import SequentialApprovalWorkflow
 from workflow_os.approval.single import (
     ApprovalError,
     SingleApproverWorkflow,
@@ -57,6 +58,7 @@ __all__ = [
     "MultiApproverWorkflow",
     "PolicyType",
     "SQLiteApprovalStore",
+    "SequentialApprovalWorkflow",
     "SingleApproverWorkflow",
     "aggregate_state",
     "apply_query",
