@@ -7,6 +7,7 @@ memory, decision, SOP, and approval layers without modifying them, and is fully
 deterministic and rule-based.
 """
 
+from workflow_os.exception.approvals import detect_missing_approvals
 from workflow_os.exception.classification import (
     ALL_EXCEPTION_TYPES,
     ExceptionType,
@@ -55,6 +56,7 @@ __all__ = [
     "apply_query",
     "detect_deadline_failure",
     "detect_deadline_failures",
+    "detect_missing_approvals",
     "matches",
     "new_exception_id",
     "normalize_severity",
