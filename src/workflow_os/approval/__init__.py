@@ -7,6 +7,7 @@ decision, and SOP layers without modifying them, and is fully deterministic and
 rule-based.
 """
 
+from workflow_os.approval.multi import MultiApproverWorkflow, aggregate_state
 from workflow_os.approval.policy import (
     ApprovalPolicy,
     PolicyType,
@@ -53,9 +54,11 @@ __all__ = [
     "ApprovalState",
     "ApprovalStore",
     "InMemoryApprovalStore",
+    "MultiApproverWorkflow",
     "PolicyType",
     "SQLiteApprovalStore",
     "SingleApproverWorkflow",
+    "aggregate_state",
     "apply_query",
     "is_active",
     "is_terminal",
