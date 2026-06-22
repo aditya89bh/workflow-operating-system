@@ -19,6 +19,7 @@ from workflow_os.decision.comparison import (
     compare_successful_vs_failed,
     compare_workflows,
 )
+from workflow_os.decision.demo import build_demo_workflow, run_demo
 from workflow_os.decision.explanation import (
     DecisionExplanation,
     explain_decision,
@@ -98,6 +99,7 @@ __all__ = [
     "SQLiteDecisionStore",
     "UnknownBenchmarkError",
     "apply_query",
+    "build_demo_workflow",
     "build_timeline",
     "compare_actors",
     "compare_successful_vs_failed",
@@ -118,6 +120,7 @@ __all__ = [
     "reconstruct_decision_timeline",
     "replay_actor_decisions",
     "replay_workflow_decisions",
+    "run_demo",
     "search_by_decision_text",
     "search_by_outcome",
     "search_by_rationale",

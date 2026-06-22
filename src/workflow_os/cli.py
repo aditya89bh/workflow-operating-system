@@ -120,6 +120,13 @@ def cmd_memory_demo(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_decision_demo(args: argparse.Namespace) -> int:
+    from workflow_os.decision.demo import run_demo
+
+    run_demo()
+    return 0
+
+
 def cmd_demo(args: argparse.Namespace) -> int:
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
@@ -189,6 +196,11 @@ def build_parser() -> argparse.ArgumentParser:
         "memory-demo", help="run the organizational memory demonstration"
     )
     memory_demo.set_defaults(func=cmd_memory_demo)
+
+    decision_demo = sub.add_parser(
+        "decision-demo", help="run the decision intelligence demonstration"
+    )
+    decision_demo.set_defaults(func=cmd_decision_demo)
 
     return parser
 
