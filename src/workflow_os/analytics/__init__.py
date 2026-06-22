@@ -14,11 +14,19 @@ from workflow_os.analytics.completion import (
     started_workflow_ids,
     workflow_completion_metrics,
 )
+from workflow_os.analytics.failure import (
+    FailureMetrics,
+    failed_workflow_ids,
+    workflow_failure_metrics,
+)
 
 __all__ = [
     "CompletionMetrics",
+    "FailureMetrics",
     "completed_workflow_ids",
+    "failed_workflow_ids",
     "observed_workflow_ids",
     "started_workflow_ids",
     "workflow_completion_metrics",
+    "workflow_failure_metrics",
 ]
