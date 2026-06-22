@@ -19,6 +19,7 @@ from workflow_os.agents.registry import (
     AgentRegistry,
 )
 from workflow_os.agents.roles import ALL_AGENT_ROLES, AgentRole, normalize_role
+from workflow_os.agents.workspace import SharedWorkspace
 
 __all__ = [
     "ALL_AGENT_ROLES",
@@ -35,6 +36,7 @@ __all__ = [
     "ExecutionEvent",
     "MemoryAgent",
     "PlannerAgent",
+    "SharedWorkspace",
     "new_agent_id",
     "normalize_role",
 ]
