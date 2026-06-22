@@ -17,6 +17,7 @@ from workflow_os.memory.confidence import (
     MEDIUM_CONFIDENCE,
     confidence_for,
 )
+from workflow_os.memory.demo import build_demo_workflow, run_demo
 from workflow_os.memory.events import (
     STEP_EVENT_TYPES,
     WORKFLOW_EVENT_TYPES,
@@ -70,6 +71,7 @@ __all__ = [
     "SQLiteMemoryStore",
     "TimelineEntry",
     "apply_query",
+    "build_demo_workflow",
     "confidence_for",
     "generate_audit_report",
     "get_actor_history",
@@ -86,6 +88,7 @@ __all__ = [
     "prune_older_than",
     "prune_to_max_count",
     "prune_workflow",
+    "run_demo",
     "step_actor",
     "utcnow",
     "workflow_owner",

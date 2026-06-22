@@ -113,6 +113,13 @@ def cmd_complete(args: argparse.Namespace) -> int:
     return _apply(args, complete_workflow)
 
 
+def cmd_memory_demo(args: argparse.Namespace) -> int:
+    from workflow_os.memory.demo import run_demo
+
+    run_demo()
+    return 0
+
+
 def cmd_demo(args: argparse.Namespace) -> int:
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
@@ -177,6 +184,11 @@ def build_parser() -> argparse.ArgumentParser:
         help=f"workflow JSON file to run (default: {DEFAULT_DEMO_WORKFLOW})",
     )
     demo.set_defaults(func=cmd_demo)
+
+    memory_demo = sub.add_parser(
+        "memory-demo", help="run the organizational memory demonstration"
+    )
+    memory_demo.set_defaults(func=cmd_memory_demo)
 
     return parser
 
