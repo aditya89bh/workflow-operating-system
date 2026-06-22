@@ -32,6 +32,7 @@ from workflow_os.sop.linking import (
     get_workflow_types_for_sop,
     workflow_type_of,
 )
+from workflow_os.sop.recommendation import recommend_sop, recommend_sops
 from workflow_os.sop.record import (
     ACTIVE_STATUSES,
     SOPRecord,
@@ -87,6 +88,8 @@ __all__ = [
     "get_workflow_types_for_sop",
     "matches",
     "new_sop_id",
+    "recommend_sop",
+    "recommend_sops",
     "search_by_tags",
     "search_by_title",
     "search_by_workflow_type",
