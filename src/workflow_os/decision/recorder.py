@@ -12,7 +12,8 @@ from typing import Any
 from workflow_os.decision.record import DecisionRecord
 from workflow_os.decision.store import DecisionStore
 from workflow_os.decision.types import DecisionType
-from workflow_os.memory.actors import workflow_owner
+from workflow_os.memory.actors import step_actor, workflow_owner
+from workflow_os.step import WorkflowStep
 from workflow_os.workflow import Workflow
 
 
@@ -75,6 +76,37 @@ class DecisionRecorder:
             rationale=rationale,
             alternatives=alternatives,
             actor=actor if actor is not None else workflow_owner(workflow),
+            outcome=outcome,
+            confidence=confidence,
+            metadata=metadata,
+        )
+
+    def record_step_decision(
+        self,
+        workflow: Workflow,
+        step: WorkflowStep,
+        decision: str,
+        *,
+        rationale: str = "",
+        alternatives: list[str] | None = None,
+        actor: str | None = None,
+        outcome: str = "pending",
+        confidence: float = 1.0,
+        metadata: dict[str, Any] | None = None,
+    ) -> DecisionRecord:
+        """Record a decision associated with a specific workflow step.
+
+        The actor defaults to the step assignee (or the workflow owner) when one
+        is not supplied.
+        """
+        return self.record_decision(
+            workflow_id=workflow.id,
+            decision=decision,
+            decision_type=DecisionType.STEP_DECISION.value,
+            rationale=rationale,
+            alternatives=alternatives,
+            step_id=step.id,
+            actor=actor if actor is not None else step_actor(workflow, step),
             outcome=outcome,
             confidence=confidence,
             metadata=metadata,
