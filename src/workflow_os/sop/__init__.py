@@ -13,11 +13,25 @@ from workflow_os.sop.record import (
     new_sop_id,
     utcnow,
 )
+from workflow_os.sop.store import (
+    SOPList,
+    SOPNotFoundError,
+    SOPQuery,
+    SOPStore,
+    apply_query,
+    matches,
+)
 
 __all__ = [
     "ACTIVE_STATUSES",
+    "SOPList",
+    "SOPNotFoundError",
+    "SOPQuery",
     "SOPRecord",
     "SOPStatus",
+    "SOPStore",
+    "apply_query",
+    "matches",
     "new_sop_id",
     "utcnow",
 ]
