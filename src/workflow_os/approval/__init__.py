@@ -7,6 +7,14 @@ decision, and SOP layers without modifying them, and is fully deterministic and
 rule-based.
 """
 
+from workflow_os.approval.escalation import (
+    EscalationEvent,
+    EscalationRule,
+    escalate,
+    escalate_if_overdue,
+    escalation_history,
+    should_escalate,
+)
 from workflow_os.approval.multi import MultiApproverWorkflow, aggregate_state
 from workflow_os.approval.parallel import ParallelApprovalWorkflow
 from workflow_os.approval.policy import (
@@ -63,6 +71,8 @@ __all__ = [
     "ApprovalRequest",
     "ApprovalState",
     "ApprovalStore",
+    "EscalationEvent",
+    "EscalationRule",
     "InMemoryApprovalStore",
     "MultiApproverWorkflow",
     "ParallelApprovalWorkflow",
@@ -73,6 +83,9 @@ __all__ = [
     "aggregate_state",
     "apply_query",
     "deadline",
+    "escalate",
+    "escalate_if_overdue",
+    "escalation_history",
     "expire",
     "expire_if_overdue",
     "expire_overdue",
@@ -85,5 +98,6 @@ __all__ = [
     "new_policy_id",
     "record_response",
     "set_state",
+    "should_escalate",
     "utcnow",
 ]
