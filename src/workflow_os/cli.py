@@ -155,6 +155,13 @@ def cmd_multi_agent_demo(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_analytics_demo(args: argparse.Namespace) -> int:
+    from workflow_os.analytics.demo import run_demo
+
+    run_demo()
+    return 0
+
+
 def cmd_demo(args: argparse.Namespace) -> int:
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
@@ -249,6 +256,11 @@ def build_parser() -> argparse.ArgumentParser:
         "multi-agent-demo", help="run the multi-agent collaboration demonstration"
     )
     multi_agent_demo.set_defaults(func=cmd_multi_agent_demo)
+
+    analytics_demo = sub.add_parser(
+        "analytics-demo", help="run the workflow analytics demonstration"
+    )
+    analytics_demo.set_defaults(func=cmd_analytics_demo)
 
     return parser
 

@@ -21,6 +21,7 @@ from workflow_os.analytics.completion import (
     workflow_completion_metrics,
 )
 from workflow_os.analytics.csv_export import rows_to_dicts, to_csv, write_csv
+from workflow_os.analytics.demo import run_demo
 from workflow_os.analytics.duration import (
     DurationMetrics,
     execution_duration_metrics,
@@ -96,6 +97,7 @@ __all__ = [
     "failure_trends",
     "observed_workflow_ids",
     "rows_to_dicts",
+    "run_demo",
     "slow_steps",
     "slowest_steps",
     "started_workflow_ids",
