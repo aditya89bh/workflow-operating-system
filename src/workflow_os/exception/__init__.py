@@ -23,6 +23,11 @@ from workflow_os.exception.record import (
     new_exception_id,
     utcnow,
 )
+from workflow_os.exception.recovery import (
+    RecoveryAction,
+    RecoveryStatus,
+    new_recovery_id,
+)
 from workflow_os.exception.resources import (
     detect_missing_resources,
     find_missing_resources,
@@ -57,6 +62,8 @@ __all__ = [
     "ExceptionStore",
     "ExceptionType",
     "InMemoryExceptionStore",
+    "RecoveryAction",
+    "RecoveryStatus",
     "SQLiteExceptionStore",
     "apply_query",
     "detect_deadline_failure",
@@ -68,6 +75,7 @@ __all__ = [
     "is_stalled",
     "matches",
     "new_exception_id",
+    "new_recovery_id",
     "normalize_severity",
     "normalize_type",
     "severity_rank",
