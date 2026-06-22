@@ -13,6 +13,7 @@ from workflow_os.sop.record import (
     new_sop_id,
     utcnow,
 )
+from workflow_os.sop.sqlite_store import SQLiteSOPStore
 from workflow_os.sop.store import (
     SOPList,
     SOPNotFoundError,
@@ -30,6 +31,7 @@ __all__ = [
     "SOPRecord",
     "SOPStatus",
     "SOPStore",
+    "SQLiteSOPStore",
     "apply_query",
     "matches",
     "new_sop_id",
