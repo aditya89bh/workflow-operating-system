@@ -19,6 +19,11 @@ from workflow_os.learning.automation import (
     repeated_recovery_recommendations,
     repetitive_task_recommendations,
 )
+from workflow_os.learning.continuous_improvement import (
+    ContinuousImprovementReport,
+    continuous_improvement_report,
+    improvement_opportunities,
+)
 from workflow_os.learning.exception_patterns import (
     chronic_workflow_problems,
     recurring_exception_insights,
@@ -63,6 +68,7 @@ from workflow_os.learning.workflow_recommendations import (
 )
 
 __all__ = [
+    "ContinuousImprovementReport",
     "MaturityScore",
     "OrganizationalInsight",
     "Recommendation",
@@ -72,11 +78,13 @@ __all__ = [
     "automation_opportunity_recommendations",
     "chronic_workflow_problems",
     "consistently_healthy_workflows",
+    "continuous_improvement_report",
     "escalation_recommendations",
     "failure_hotspots",
     "failure_pattern_insights",
     "frequently_failing_workflows",
     "highest_success_rate_workflows",
+    "improvement_opportunities",
     "maturity_level",
     "most_reliable_workflows",
     "new_insight_id",
