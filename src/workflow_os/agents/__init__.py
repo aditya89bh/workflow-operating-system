@@ -8,6 +8,7 @@ collaboration. It builds on the earlier layers without modifying them.
 """
 
 from workflow_os.agents.coordinator import CoordinationError, CoordinatorAgent
+from workflow_os.agents.planner import PlannerAgent
 from workflow_os.agents.record import Agent, new_agent_id
 from workflow_os.agents.registry import (
     AgentAlreadyRegisteredError,
@@ -25,6 +26,7 @@ __all__ = [
     "AgentRole",
     "CoordinationError",
     "CoordinatorAgent",
+    "PlannerAgent",
     "new_agent_id",
     "normalize_role",
 ]
