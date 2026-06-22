@@ -35,6 +35,11 @@ from workflow_os.learning.insight import (
     OrganizationalInsight,
     new_insight_id,
 )
+from workflow_os.learning.maturity import (
+    MaturityScore,
+    maturity_level,
+    organizational_maturity_score,
+)
 from workflow_os.learning.patterns import (
     WorkflowRunStats,
     recurring_bottlenecks,
@@ -58,6 +63,7 @@ from workflow_os.learning.workflow_recommendations import (
 )
 
 __all__ = [
+    "MaturityScore",
     "OrganizationalInsight",
     "Recommendation",
     "WorkflowRunStats",
@@ -71,8 +77,10 @@ __all__ = [
     "failure_pattern_insights",
     "frequently_failing_workflows",
     "highest_success_rate_workflows",
+    "maturity_level",
     "most_reliable_workflows",
     "new_insight_id",
+    "organizational_maturity_score",
     "new_recommendation_id",
     "recurring_bottlenecks",
     "recurring_exception_insights",
