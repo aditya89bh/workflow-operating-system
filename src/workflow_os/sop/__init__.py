@@ -19,6 +19,13 @@ from workflow_os.sop.authorship import (
     set_owners,
     set_reviewers,
 )
+from workflow_os.sop.best_practices import (
+    BestPracticeRecord,
+    BestPracticeStore,
+    BestPracticeType,
+    capture_best_practice,
+    new_practice_id,
+)
 from workflow_os.sop.change_history import (
     SOPChange,
     SOPChangeLog,
@@ -71,6 +78,9 @@ __all__ = [
     "OWNERS_KEY",
     "REVIEWERS_KEY",
     "WORKFLOW_TYPE_METADATA_KEY",
+    "BestPracticeRecord",
+    "BestPracticeStore",
+    "BestPracticeType",
     "LessonRecord",
     "LessonStore",
     "LessonType",
@@ -91,6 +101,7 @@ __all__ = [
     "add_owner",
     "add_reviewer",
     "apply_query",
+    "capture_best_practice",
     "capture_lesson",
     "diff_fields",
     "get_authorship",
@@ -99,6 +110,7 @@ __all__ = [
     "get_workflow_types_for_sop",
     "matches",
     "new_lesson_id",
+    "new_practice_id",
     "new_sop_id",
     "recommend_sop",
     "recommend_sops",
