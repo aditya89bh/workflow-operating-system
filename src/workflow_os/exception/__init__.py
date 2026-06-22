@@ -36,6 +36,7 @@ from workflow_os.exception.resources import (
     detect_missing_resources,
     find_missing_resources,
 )
+from workflow_os.exception.retry import RetryStrategy, count_retries
 from workflow_os.exception.severity import (
     ALL_SEVERITIES,
     ExceptionSeverity,
@@ -68,8 +69,10 @@ __all__ = [
     "InMemoryExceptionStore",
     "RecoveryAction",
     "RecoveryStatus",
+    "RetryStrategy",
     "SQLiteExceptionStore",
     "apply_query",
+    "count_retries",
     "detect_deadline_failure",
     "detect_deadline_failures",
     "detect_missing_approvals",
