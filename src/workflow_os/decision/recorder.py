@@ -12,6 +12,8 @@ from typing import Any
 from workflow_os.decision.record import DecisionRecord
 from workflow_os.decision.store import DecisionStore
 from workflow_os.decision.types import DecisionType
+from workflow_os.memory.actors import workflow_owner
+from workflow_os.workflow import Workflow
 
 
 class DecisionRecorder:
@@ -49,6 +51,34 @@ class DecisionRecorder:
         )
         self.store.add(record)
         return record
+
+    def record_workflow_decision(
+        self,
+        workflow: Workflow,
+        decision: str,
+        *,
+        rationale: str = "",
+        alternatives: list[str] | None = None,
+        actor: str | None = None,
+        outcome: str = "pending",
+        confidence: float = 1.0,
+        metadata: dict[str, Any] | None = None,
+    ) -> DecisionRecord:
+        """Record a decision associated with an entire workflow.
+
+        The actor defaults to the workflow owner when one is not supplied.
+        """
+        return self.record_decision(
+            workflow_id=workflow.id,
+            decision=decision,
+            decision_type=DecisionType.WORKFLOW_DECISION.value,
+            rationale=rationale,
+            alternatives=alternatives,
+            actor=actor if actor is not None else workflow_owner(workflow),
+            outcome=outcome,
+            confidence=confidence,
+            metadata=metadata,
+        )
 
     def update_decision_outcome(
         self,
