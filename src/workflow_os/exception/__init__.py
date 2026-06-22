@@ -23,6 +23,10 @@ from workflow_os.exception.record import (
     new_exception_id,
     utcnow,
 )
+from workflow_os.exception.resources import (
+    detect_missing_resources,
+    find_missing_resources,
+)
 from workflow_os.exception.severity import (
     ALL_SEVERITIES,
     ExceptionSeverity,
@@ -57,6 +61,8 @@ __all__ = [
     "detect_deadline_failure",
     "detect_deadline_failures",
     "detect_missing_approvals",
+    "detect_missing_resources",
+    "find_missing_resources",
     "matches",
     "new_exception_id",
     "normalize_severity",
