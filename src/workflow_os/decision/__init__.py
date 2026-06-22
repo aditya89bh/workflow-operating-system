@@ -10,6 +10,7 @@ from workflow_os.decision.record import (
     new_decision_id,
     utcnow,
 )
+from workflow_os.decision.sqlite_store import SQLiteDecisionStore
 from workflow_os.decision.store import (
     DecisionList,
     DecisionNotFoundError,
@@ -28,6 +29,7 @@ __all__ = [
     "DecisionRecord",
     "DecisionStore",
     "DecisionType",
+    "SQLiteDecisionStore",
     "apply_query",
     "matches",
     "new_decision_id",
