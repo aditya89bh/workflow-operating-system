@@ -7,6 +7,11 @@ memory, decision, SOP, and approval layers without modifying them, and is fully
 deterministic and rule-based.
 """
 
+from workflow_os.exception.classification import (
+    ALL_EXCEPTION_TYPES,
+    ExceptionType,
+    normalize_type,
+)
 from workflow_os.exception.record import (
     ExceptionRecord,
     new_exception_id,
@@ -14,7 +19,10 @@ from workflow_os.exception.record import (
 )
 
 __all__ = [
+    "ALL_EXCEPTION_TYPES",
     "ExceptionRecord",
+    "ExceptionType",
     "new_exception_id",
+    "normalize_type",
     "utcnow",
 ]
