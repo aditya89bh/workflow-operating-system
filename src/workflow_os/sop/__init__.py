@@ -24,6 +24,13 @@ from workflow_os.sop.change_history import (
     SOPChangeLog,
     diff_fields,
 )
+from workflow_os.sop.lessons import (
+    LessonRecord,
+    LessonStore,
+    LessonType,
+    capture_lesson,
+    new_lesson_id,
+)
 from workflow_os.sop.linking import (
     WORKFLOW_TYPE_METADATA_KEY,
     WorkflowSOPLinks,
@@ -64,6 +71,9 @@ __all__ = [
     "OWNERS_KEY",
     "REVIEWERS_KEY",
     "WORKFLOW_TYPE_METADATA_KEY",
+    "LessonRecord",
+    "LessonStore",
+    "LessonType",
     "SOPAuthorship",
     "SOPChange",
     "SOPChangeLog",
@@ -81,12 +91,14 @@ __all__ = [
     "add_owner",
     "add_reviewer",
     "apply_query",
+    "capture_lesson",
     "diff_fields",
     "get_authorship",
     "get_sops_for_workflow",
     "get_sops_for_workflow_type",
     "get_workflow_types_for_sop",
     "matches",
+    "new_lesson_id",
     "new_sop_id",
     "recommend_sop",
     "recommend_sops",
