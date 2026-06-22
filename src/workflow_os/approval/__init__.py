@@ -26,6 +26,13 @@ from workflow_os.approval.escalation import (
     escalation_history,
     should_escalate,
 )
+from workflow_os.approval.history import (
+    actor_approvals,
+    completed_approvals,
+    pending_approvals,
+    requester_approvals,
+    workflow_approvals,
+)
 from workflow_os.approval.multi import MultiApproverWorkflow, aggregate_state
 from workflow_os.approval.parallel import ParallelApprovalWorkflow
 from workflow_os.approval.policy import (
@@ -105,8 +112,10 @@ __all__ = [
     "SequentialApprovalWorkflow",
     "SingleApproverWorkflow",
     "active_delegations",
+    "actor_approvals",
     "aggregate_state",
     "apply_query",
+    "completed_approvals",
     "deadline",
     "delegate",
     "delegation_history",
@@ -125,9 +134,12 @@ __all__ = [
     "new_approval_id",
     "new_policy_id",
     "overdue_reminders",
+    "pending_approvals",
     "pending_reminders",
     "record_response",
+    "requester_approvals",
     "set_state",
     "should_escalate",
     "utcnow",
+    "workflow_approvals",
 ]
