@@ -70,6 +70,10 @@ from workflow_os.sop.record import (
     new_sop_id,
     utcnow,
 )
+from workflow_os.sop.reports import (
+    SOPLifecycleReport,
+    generate_lifecycle_report,
+)
 from workflow_os.sop.scoring import SOPScore, score_sop, score_sops
 from workflow_os.sop.search import (
     search_by_tags,
@@ -108,6 +112,7 @@ __all__ = [
     "SOPConflict",
     "SOPExceptionRecord",
     "SOPExceptionStore",
+    "SOPLifecycleReport",
     "SOPList",
     "SOPScore",
     "SOPNotFoundError",
@@ -133,6 +138,7 @@ __all__ = [
     "detect_version_conflicts",
     "detect_workflow_mapping_conflicts",
     "diff_fields",
+    "generate_lifecycle_report",
     "get_authorship",
     "get_sops_for_workflow",
     "get_sops_for_workflow_type",
