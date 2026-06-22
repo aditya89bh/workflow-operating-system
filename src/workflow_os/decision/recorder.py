@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from workflow_os.decision.outcome import normalize_outcome
 from workflow_os.decision.record import DecisionRecord
 from workflow_os.decision.store import DecisionStore
 from workflow_os.decision.types import DecisionType
@@ -46,7 +47,7 @@ class DecisionRecorder:
             alternatives=alternatives,
             step_id=step_id,
             actor=actor,
-            outcome=outcome,
+            outcome=normalize_outcome(outcome),
             confidence=confidence,
             metadata=metadata,
         )
@@ -163,7 +164,7 @@ class DecisionRecorder:
     ) -> DecisionRecord:
         """Update the outcome (and optionally metadata) of a stored decision."""
         record = self.store.get(decision_id)
-        record.outcome = str(outcome)
+        record.outcome = normalize_outcome(outcome)
         if metadata:
             record.metadata.update(metadata)
         self.store.add(record)

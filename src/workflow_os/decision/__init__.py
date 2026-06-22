@@ -10,6 +10,14 @@ from workflow_os.decision.explanation import (
     explain_decision,
     explain_decision_text,
 )
+from workflow_os.decision.outcome import (
+    RESOLVED_OUTCOMES,
+    VALID_OUTCOMES,
+    DecisionOutcome,
+    InvalidOutcomeError,
+    normalize_outcome,
+    set_decision_outcome,
+)
 from workflow_os.decision.record import (
     DecisionRecord,
     new_decision_id,
@@ -42,15 +50,19 @@ from workflow_os.decision.types import ALL_DECISION_TYPES, DecisionType
 
 __all__ = [
     "ALL_DECISION_TYPES",
+    "RESOLVED_OUTCOMES",
+    "VALID_OUTCOMES",
     "DecisionExplanation",
     "DecisionList",
     "DecisionNotFoundError",
+    "DecisionOutcome",
     "DecisionQuery",
     "DecisionRecord",
     "DecisionRecorder",
     "DecisionStore",
     "DecisionTimelineEntry",
     "DecisionType",
+    "InvalidOutcomeError",
     "SQLiteDecisionStore",
     "apply_query",
     "build_timeline",
@@ -61,9 +73,11 @@ __all__ = [
     "get_workflow_decision_timeline",
     "matches",
     "new_decision_id",
+    "normalize_outcome",
     "search_by_decision_text",
     "search_by_outcome",
     "search_by_rationale",
     "search_decisions",
+    "set_decision_outcome",
     "utcnow",
 ]
