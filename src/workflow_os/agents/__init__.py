@@ -9,6 +9,15 @@ collaboration. It builds on the earlier layers without modifying them.
 
 from workflow_os.agents.compliance import ComplianceAgent, ComplianceResult
 from workflow_os.agents.coordinator import CoordinationError, CoordinatorAgent
+from workflow_os.agents.delegation import (
+    DelegationAction,
+    DelegationError,
+    DelegationEvent,
+    TaskAssignment,
+    TaskDelegation,
+    TaskNotFoundError,
+    new_task_id,
+)
 from workflow_os.agents.execution import ExecutionAgent, ExecutionEvent
 from workflow_os.agents.memory_agent import MemoryAgent
 from workflow_os.agents.planner import PlannerAgent
@@ -33,6 +42,9 @@ __all__ = [
     "ComplianceResult",
     "CoordinationError",
     "CoordinatorAgent",
+    "DelegationAction",
+    "DelegationError",
+    "DelegationEvent",
     "ExecutionAgent",
     "ExecutionEvent",
     "MemoryAccess",
@@ -40,6 +52,10 @@ __all__ = [
     "PlannerAgent",
     "SharedMemory",
     "SharedWorkspace",
+    "TaskAssignment",
+    "TaskDelegation",
+    "TaskNotFoundError",
     "new_agent_id",
+    "new_task_id",
     "normalize_role",
 ]
