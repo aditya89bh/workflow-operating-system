@@ -12,9 +12,25 @@ from workflow_os.approval.record import (
     new_approval_id,
     utcnow,
 )
+from workflow_os.approval.states import (
+    ACTIVE_STATES,
+    TERMINAL_STATES,
+    ApprovalState,
+    is_active,
+    is_terminal,
+    record_response,
+    set_state,
+)
 
 __all__ = [
+    "ACTIVE_STATES",
+    "TERMINAL_STATES",
     "ApprovalRequest",
+    "ApprovalState",
+    "is_active",
+    "is_terminal",
     "new_approval_id",
+    "record_response",
+    "set_state",
     "utcnow",
 ]
