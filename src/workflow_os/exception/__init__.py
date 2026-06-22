@@ -12,6 +12,11 @@ from workflow_os.exception.classification import (
     ExceptionType,
     normalize_type,
 )
+from workflow_os.exception.deadline import (
+    Deadline,
+    detect_deadline_failure,
+    detect_deadline_failures,
+)
 from workflow_os.exception.record import (
     ExceptionRecord,
     new_exception_id,
@@ -37,6 +42,7 @@ from workflow_os.exception.store import (
 __all__ = [
     "ALL_EXCEPTION_TYPES",
     "ALL_SEVERITIES",
+    "Deadline",
     "ExceptionList",
     "ExceptionNotFoundError",
     "ExceptionQuery",
@@ -47,6 +53,8 @@ __all__ = [
     "InMemoryExceptionStore",
     "SQLiteExceptionStore",
     "apply_query",
+    "detect_deadline_failure",
+    "detect_deadline_failures",
     "matches",
     "new_exception_id",
     "normalize_severity",
