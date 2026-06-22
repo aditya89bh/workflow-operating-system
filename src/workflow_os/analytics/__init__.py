@@ -31,6 +31,14 @@ from workflow_os.analytics.failure import (
     failed_workflow_ids,
     workflow_failure_metrics,
 )
+from workflow_os.analytics.reports import (
+    WorkflowStatistics,
+    WorkflowSummary,
+    counts_by_day,
+    workflow_statistics,
+    workflow_summaries,
+    workflow_trends,
+)
 from workflow_os.analytics.slow_steps import SlowStep, slow_steps, slowest_steps
 from workflow_os.analytics.step_duration import (
     step_duration_metrics,
@@ -45,8 +53,11 @@ __all__ = [
     "SlowStep",
     "WorkflowComparison",
     "WorkflowComparisonRow",
+    "WorkflowStatistics",
+    "WorkflowSummary",
     "compare_workflows",
     "completed_workflow_ids",
+    "counts_by_day",
     "detect_bottlenecks",
     "execution_duration_metrics",
     "failed_workflow_ids",
@@ -60,4 +71,7 @@ __all__ = [
     "workflow_completion_metrics",
     "workflow_durations",
     "workflow_failure_metrics",
+    "workflow_statistics",
+    "workflow_summaries",
+    "workflow_trends",
 ]
