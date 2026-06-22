@@ -27,6 +27,13 @@ from workflow_os.approval.record import (
     new_approval_id,
     utcnow,
 )
+from workflow_os.approval.reminders import (
+    Reminder,
+    ReminderKind,
+    generate_reminders,
+    overdue_reminders,
+    pending_reminders,
+)
 from workflow_os.approval.sequential import SequentialApprovalWorkflow
 from workflow_os.approval.single import (
     ApprovalError,
@@ -77,6 +84,8 @@ __all__ = [
     "MultiApproverWorkflow",
     "ParallelApprovalWorkflow",
     "PolicyType",
+    "Reminder",
+    "ReminderKind",
     "SQLiteApprovalStore",
     "SequentialApprovalWorkflow",
     "SingleApproverWorkflow",
@@ -90,12 +99,15 @@ __all__ = [
     "expire_if_overdue",
     "expire_overdue",
     "find_overdue",
+    "generate_reminders",
     "is_active",
     "is_overdue",
     "is_terminal",
     "matches",
     "new_approval_id",
     "new_policy_id",
+    "overdue_reminders",
+    "pending_reminders",
     "record_response",
     "set_state",
     "should_escalate",
