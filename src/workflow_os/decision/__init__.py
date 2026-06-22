@@ -26,6 +26,13 @@ from workflow_os.decision.store import (
     apply_query,
     matches,
 )
+from workflow_os.decision.timelines import (
+    DecisionTimelineEntry,
+    build_timeline,
+    get_actor_decision_timeline,
+    get_decision_timeline,
+    get_workflow_decision_timeline,
+)
 from workflow_os.decision.types import ALL_DECISION_TYPES, DecisionType
 
 __all__ = [
@@ -36,9 +43,14 @@ __all__ = [
     "DecisionRecord",
     "DecisionRecorder",
     "DecisionStore",
+    "DecisionTimelineEntry",
     "DecisionType",
     "SQLiteDecisionStore",
     "apply_query",
+    "build_timeline",
+    "get_actor_decision_timeline",
+    "get_decision_timeline",
+    "get_workflow_decision_timeline",
     "matches",
     "new_decision_id",
     "search_by_decision_text",
