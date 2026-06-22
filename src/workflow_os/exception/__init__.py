@@ -18,6 +18,7 @@ from workflow_os.exception.deadline import (
     detect_deadline_failure,
     detect_deadline_failures,
 )
+from workflow_os.exception.fallback import FallbackStrategy
 from workflow_os.exception.recommendation import (
     recommend_action,
     recommend_recovery,
@@ -66,6 +67,7 @@ __all__ = [
     "ExceptionSeverity",
     "ExceptionStore",
     "ExceptionType",
+    "FallbackStrategy",
     "InMemoryExceptionStore",
     "RecoveryAction",
     "RecoveryStatus",
