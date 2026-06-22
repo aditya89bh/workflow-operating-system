@@ -34,6 +34,7 @@ from workflow_os.exception.severity import (
     severity_rank,
 )
 from workflow_os.exception.sqlite_store import SQLiteExceptionStore
+from workflow_os.exception.stall import detect_stalled_workflows, is_stalled
 from workflow_os.exception.store import (
     ExceptionList,
     ExceptionNotFoundError,
@@ -62,7 +63,9 @@ __all__ = [
     "detect_deadline_failures",
     "detect_missing_approvals",
     "detect_missing_resources",
+    "detect_stalled_workflows",
     "find_missing_resources",
+    "is_stalled",
     "matches",
     "new_exception_id",
     "normalize_severity",
