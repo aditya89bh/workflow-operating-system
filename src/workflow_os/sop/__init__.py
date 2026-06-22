@@ -24,6 +24,14 @@ from workflow_os.sop.change_history import (
     SOPChangeLog,
     diff_fields,
 )
+from workflow_os.sop.linking import (
+    WORKFLOW_TYPE_METADATA_KEY,
+    WorkflowSOPLinks,
+    get_sops_for_workflow,
+    get_sops_for_workflow_type,
+    get_workflow_types_for_sop,
+    workflow_type_of,
+)
 from workflow_os.sop.record import (
     ACTIVE_STATUSES,
     SOPRecord,
@@ -54,6 +62,7 @@ __all__ = [
     "CONTRIBUTORS_KEY",
     "OWNERS_KEY",
     "REVIEWERS_KEY",
+    "WORKFLOW_TYPE_METADATA_KEY",
     "SOPAuthorship",
     "SOPChange",
     "SOPChangeLog",
@@ -66,12 +75,16 @@ __all__ = [
     "SOPVersion",
     "SOPVersionHistory",
     "SQLiteSOPStore",
+    "WorkflowSOPLinks",
     "add_contributor",
     "add_owner",
     "add_reviewer",
     "apply_query",
     "diff_fields",
     "get_authorship",
+    "get_sops_for_workflow",
+    "get_sops_for_workflow_type",
+    "get_workflow_types_for_sop",
     "matches",
     "new_sop_id",
     "search_by_tags",
@@ -83,4 +96,5 @@ __all__ = [
     "set_reviewers",
     "text_search",
     "utcnow",
+    "workflow_type_of",
 ]
