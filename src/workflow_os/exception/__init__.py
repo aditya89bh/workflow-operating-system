@@ -25,6 +25,13 @@ from workflow_os.exception.deadline import (
     detect_deadline_failure,
     detect_deadline_failures,
 )
+from workflow_os.exception.effectiveness import (
+    EffectivenessMetrics,
+    compute_effectiveness,
+    mean_recovery_time,
+    recovery_success_rate,
+    retry_success_rate,
+)
 from workflow_os.exception.fallback import FallbackStrategy
 from workflow_os.exception.recommendation import (
     recommend_action,
@@ -74,6 +81,7 @@ __all__ = [
     "ALL_EXCEPTION_TYPES",
     "ALL_SEVERITIES",
     "Deadline",
+    "EffectivenessMetrics",
     "ExceptionList",
     "ExceptionNotFoundError",
     "ExceptionQuery",
@@ -93,6 +101,7 @@ __all__ = [
     "cluster_by_severity",
     "cluster_by_type",
     "cluster_by_workflow",
+    "compute_effectiveness",
     "count_retries",
     "detect_deadline_failure",
     "detect_deadline_failures",
@@ -104,6 +113,7 @@ __all__ = [
     "find_missing_resources",
     "is_stalled",
     "matches",
+    "mean_recovery_time",
     "new_exception_id",
     "new_recovery_id",
     "normalize_severity",
@@ -111,7 +121,9 @@ __all__ = [
     "recommend_action",
     "recommend_recovery",
     "recovery_outcome",
+    "recovery_success_rate",
     "recurring_failures",
+    "retry_success_rate",
     "severity_rank",
     "utcnow",
     "workflow_risk_reports",
