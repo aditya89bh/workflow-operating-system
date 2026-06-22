@@ -5,6 +5,14 @@ retrieval, search, explanation, replay, and analysis on top of them. It builds
 on the organizational memory layer without modifying it.
 """
 
+from workflow_os.decision.benchmarks import (
+    BENCHMARK_DATASETS,
+    UnknownBenchmarkError,
+    list_benchmarks,
+    load_all_benchmarks_into,
+    load_benchmark,
+    load_benchmark_into,
+)
 from workflow_os.decision.comparison import (
     ComparisonReport,
     compare_actors,
@@ -68,6 +76,7 @@ from workflow_os.decision.types import ALL_DECISION_TYPES, DecisionType
 
 __all__ = [
     "ALL_DECISION_TYPES",
+    "BENCHMARK_DATASETS",
     "RESOLVED_OUTCOMES",
     "VALID_OUTCOMES",
     "ActorDecisionStats",
@@ -87,6 +96,7 @@ __all__ = [
     "InvalidOutcomeError",
     "ReplayEvent",
     "SQLiteDecisionStore",
+    "UnknownBenchmarkError",
     "apply_query",
     "build_timeline",
     "compare_actors",
@@ -98,6 +108,10 @@ __all__ = [
     "get_actor_decision_timeline",
     "get_decision_timeline",
     "get_workflow_decision_timeline",
+    "list_benchmarks",
+    "load_all_benchmarks_into",
+    "load_benchmark",
+    "load_benchmark_into",
     "matches",
     "new_decision_id",
     "normalize_outcome",
