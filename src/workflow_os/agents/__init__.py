@@ -19,6 +19,11 @@ from workflow_os.agents.delegation import (
     new_task_id,
 )
 from workflow_os.agents.execution import ExecutionAgent, ExecutionEvent
+from workflow_os.agents.logs import (
+    CollaborationEntry,
+    CollaborationEventType,
+    CollaborationLog,
+)
 from workflow_os.agents.memory_agent import MemoryAgent
 from workflow_os.agents.messaging import Message, MessageBus, new_message_id
 from workflow_os.agents.planner import PlannerAgent
@@ -39,6 +44,9 @@ __all__ = [
     "AgentNotFoundError",
     "AgentRegistry",
     "AgentRole",
+    "CollaborationEntry",
+    "CollaborationEventType",
+    "CollaborationLog",
     "ComplianceAgent",
     "ComplianceResult",
     "CoordinationError",
