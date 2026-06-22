@@ -8,6 +8,7 @@ rule-based.
 """
 
 from workflow_os.approval.multi import MultiApproverWorkflow, aggregate_state
+from workflow_os.approval.parallel import ParallelApprovalWorkflow
 from workflow_os.approval.policy import (
     ApprovalPolicy,
     PolicyType,
@@ -56,6 +57,7 @@ __all__ = [
     "ApprovalStore",
     "InMemoryApprovalStore",
     "MultiApproverWorkflow",
+    "ParallelApprovalWorkflow",
     "PolicyType",
     "SQLiteApprovalStore",
     "SequentialApprovalWorkflow",
