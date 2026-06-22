@@ -20,6 +20,7 @@ from workflow_os.analytics.completion import (
     started_workflow_ids,
     workflow_completion_metrics,
 )
+from workflow_os.analytics.csv_export import rows_to_dicts, to_csv, write_csv
 from workflow_os.analytics.duration import (
     DurationMetrics,
     execution_duration_metrics,
@@ -93,6 +94,7 @@ __all__ = [
     "failed_workflow_ids",
     "failure_trends",
     "observed_workflow_ids",
+    "rows_to_dicts",
     "slow_steps",
     "slowest_steps",
     "started_workflow_ids",
@@ -100,6 +102,7 @@ __all__ = [
     "step_durations",
     "summarize_durations",
     "team_statistics",
+    "to_csv",
     "trend_report",
     "workflow_completion_metrics",
     "workflow_completion_trends",
@@ -110,4 +113,5 @@ __all__ = [
     "workflow_statistics",
     "workflow_summaries",
     "workflow_trends",
+    "write_csv",
 ]
