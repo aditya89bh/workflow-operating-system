@@ -34,6 +34,7 @@ from workflow_os.learning.recommendation import (
     Recommendation,
     new_recommendation_id,
 )
+from workflow_os.learning.sop_recommendations import sop_update_recommendations
 from workflow_os.learning.success import (
     consistently_healthy_workflows,
     highest_success_rate_workflows,
@@ -63,6 +64,7 @@ __all__ = [
     "recurring_recovery_actions",
     "recurring_workflows",
     "repeated_exceptions",
+    "sop_update_recommendations",
     "successful_workflow_insights",
     "unstable_workflows",
     "workflow_improvement_recommendations",
