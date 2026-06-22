@@ -11,6 +11,13 @@ from workflow_os.learning.insight import (
     OrganizationalInsight,
     new_insight_id,
 )
+from workflow_os.learning.patterns import (
+    WorkflowRunStats,
+    recurring_bottlenecks,
+    recurring_exceptions,
+    recurring_workflows,
+    workflow_run_stats,
+)
 from workflow_os.learning.recommendation import (
     Recommendation,
     new_recommendation_id,
@@ -19,6 +26,11 @@ from workflow_os.learning.recommendation import (
 __all__ = [
     "OrganizationalInsight",
     "Recommendation",
+    "WorkflowRunStats",
     "new_insight_id",
     "new_recommendation_id",
+    "recurring_bottlenecks",
+    "recurring_exceptions",
+    "recurring_workflows",
+    "workflow_run_stats",
 ]
