@@ -12,6 +12,13 @@ from workflow_os.approval.audit import (
     ApprovalAuditLog,
     ApprovalEventType,
 )
+from workflow_os.approval.bottlenecks import (
+    BottleneckReport,
+    analyze_bottlenecks,
+    escalation_hotspots,
+    slowest_approvers,
+    workflow_bottlenecks,
+)
 from workflow_os.approval.delegation import (
     DelegationEvent,
     active_delegations,
@@ -108,6 +115,7 @@ __all__ = [
     "ApprovalRequest",
     "ApprovalState",
     "ApprovalStore",
+    "BottleneckReport",
     "DelegationEvent",
     "EscalationEvent",
     "EscalationRule",
@@ -124,6 +132,7 @@ __all__ = [
     "active_delegations",
     "actor_approvals",
     "aggregate_state",
+    "analyze_bottlenecks",
     "apply_query",
     "approvals_by_actor",
     "average_response_time",
@@ -135,6 +144,7 @@ __all__ = [
     "escalate",
     "escalate_if_overdue",
     "escalation_history",
+    "escalation_hotspots",
     "expire",
     "expire_if_overdue",
     "expire_overdue",
@@ -156,6 +166,8 @@ __all__ = [
     "response_times",
     "set_state",
     "should_escalate",
+    "slowest_approvers",
     "utcnow",
     "workflow_approvals",
+    "workflow_bottlenecks",
 ]
