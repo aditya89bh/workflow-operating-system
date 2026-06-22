@@ -35,6 +35,7 @@ from workflow_os.analytics.failure import (
     failed_workflow_ids,
     workflow_failure_metrics,
 )
+from workflow_os.analytics.health import HealthScore, workflow_health_score
 from workflow_os.analytics.reports import (
     WorkflowStatistics,
     WorkflowSummary,
@@ -62,6 +63,7 @@ __all__ = [
     "DurationMetrics",
     "ExecutionSummary",
     "FailureMetrics",
+    "HealthScore",
     "Scorecard",
     "SlowStep",
     "TeamStatistics",
@@ -89,6 +91,7 @@ __all__ = [
     "workflow_completion_metrics",
     "workflow_durations",
     "workflow_failure_metrics",
+    "workflow_health_score",
     "workflow_scorecards",
     "workflow_statistics",
     "workflow_summaries",
