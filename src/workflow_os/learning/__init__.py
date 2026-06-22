@@ -25,6 +25,13 @@ from workflow_os.learning.continuous_improvement import (
     improvement_opportunities,
 )
 from workflow_os.learning.dashboard import organizational_dashboard
+from workflow_os.learning.examples import (
+    OrganizationExample,
+    all_examples,
+    improvement_journey,
+    struggling_organization,
+    successful_organization,
+)
 from workflow_os.learning.exception_patterns import (
     chronic_workflow_problems,
     recurring_exception_insights,
@@ -77,9 +84,11 @@ __all__ = [
     "ContinuousImprovementReport",
     "LearningReport",
     "MaturityScore",
+    "OrganizationExample",
     "OrganizationalInsight",
     "Recommendation",
     "WorkflowRunStats",
+    "all_examples",
     "approval_improvement_recommendations",
     "approver_bottleneck_recommendations",
     "automation_opportunity_recommendations",
@@ -91,6 +100,7 @@ __all__ = [
     "failure_pattern_insights",
     "frequently_failing_workflows",
     "highest_success_rate_workflows",
+    "improvement_journey",
     "improvement_opportunities",
     "learning_report",
     "maturity_level",
@@ -111,6 +121,8 @@ __all__ = [
     "repeated_recovery_recommendations",
     "repetitive_task_recommendations",
     "sop_update_recommendations",
+    "struggling_organization",
+    "successful_organization",
     "successful_workflow_insights",
     "unstable_workflows",
     "workflow_improvement_recommendations",
