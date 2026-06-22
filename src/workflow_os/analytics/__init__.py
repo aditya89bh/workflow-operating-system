@@ -43,6 +43,12 @@ from workflow_os.analytics.reports import (
     workflow_summaries,
     workflow_trends,
 )
+from workflow_os.analytics.scorecards import (
+    Scorecard,
+    agent_scorecards,
+    approval_scorecards,
+    workflow_scorecards,
+)
 from workflow_os.analytics.slow_steps import SlowStep, slow_steps, slowest_steps
 from workflow_os.analytics.step_duration import (
     step_duration_metrics,
@@ -55,11 +61,14 @@ __all__ = [
     "DurationMetrics",
     "ExecutionSummary",
     "FailureMetrics",
+    "Scorecard",
     "SlowStep",
     "WorkflowComparison",
     "WorkflowComparisonRow",
     "WorkflowStatistics",
     "WorkflowSummary",
+    "agent_scorecards",
+    "approval_scorecards",
     "compare_workflows",
     "completed_workflow_ids",
     "counts_by_day",
@@ -77,6 +86,7 @@ __all__ = [
     "workflow_completion_metrics",
     "workflow_durations",
     "workflow_failure_metrics",
+    "workflow_scorecards",
     "workflow_statistics",
     "workflow_summaries",
     "workflow_trends",
