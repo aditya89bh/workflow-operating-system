@@ -8,6 +8,11 @@ from recorded data.
 """
 
 from workflow_os.analytics.bottlenecks import Bottleneck, detect_bottlenecks
+from workflow_os.analytics.comparison import (
+    WorkflowComparison,
+    WorkflowComparisonRow,
+    compare_workflows,
+)
 from workflow_os.analytics.completion import (
     CompletionMetrics,
     completed_workflow_ids,
@@ -38,6 +43,9 @@ __all__ = [
     "DurationMetrics",
     "FailureMetrics",
     "SlowStep",
+    "WorkflowComparison",
+    "WorkflowComparisonRow",
+    "compare_workflows",
     "completed_workflow_ids",
     "detect_bottlenecks",
     "execution_duration_metrics",
