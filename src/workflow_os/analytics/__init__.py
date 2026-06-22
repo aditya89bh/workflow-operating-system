@@ -56,6 +56,14 @@ from workflow_os.analytics.step_duration import (
     step_durations,
 )
 from workflow_os.analytics.team_stats import TeamStatistics, team_statistics
+from workflow_os.analytics.trends import (
+    TrendReport,
+    approval_trends,
+    exception_trends,
+    failure_trends,
+    trend_report,
+    workflow_completion_trends,
+)
 
 __all__ = [
     "Bottleneck",
@@ -67,19 +75,23 @@ __all__ = [
     "Scorecard",
     "SlowStep",
     "TeamStatistics",
+    "TrendReport",
     "WorkflowComparison",
     "WorkflowComparisonRow",
     "WorkflowStatistics",
     "WorkflowSummary",
     "agent_scorecards",
     "approval_scorecards",
+    "approval_trends",
     "compare_workflows",
     "completed_workflow_ids",
     "counts_by_day",
     "detect_bottlenecks",
+    "exception_trends",
     "execution_duration_metrics",
     "execution_summaries",
     "failed_workflow_ids",
+    "failure_trends",
     "observed_workflow_ids",
     "slow_steps",
     "slowest_steps",
@@ -88,7 +100,9 @@ __all__ = [
     "step_durations",
     "summarize_durations",
     "team_statistics",
+    "trend_report",
     "workflow_completion_metrics",
+    "workflow_completion_trends",
     "workflow_durations",
     "workflow_failure_metrics",
     "workflow_health_score",
