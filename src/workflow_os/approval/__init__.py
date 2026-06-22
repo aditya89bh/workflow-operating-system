@@ -43,6 +43,14 @@ from workflow_os.approval.store import (
     apply_query,
     matches,
 )
+from workflow_os.approval.timeout import (
+    deadline,
+    expire,
+    expire_if_overdue,
+    expire_overdue,
+    find_overdue,
+    is_overdue,
+)
 
 __all__ = [
     "ACTIVE_STATES",
@@ -64,7 +72,13 @@ __all__ = [
     "SingleApproverWorkflow",
     "aggregate_state",
     "apply_query",
+    "deadline",
+    "expire",
+    "expire_if_overdue",
+    "expire_overdue",
+    "find_overdue",
     "is_active",
+    "is_overdue",
     "is_terminal",
     "matches",
     "new_approval_id",
