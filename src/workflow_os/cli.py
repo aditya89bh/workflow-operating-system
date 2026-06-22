@@ -148,6 +148,13 @@ def cmd_exception_demo(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_multi_agent_demo(args: argparse.Namespace) -> int:
+    from workflow_os.agents.demo import run_demo
+
+    run_demo()
+    return 0
+
+
 def cmd_demo(args: argparse.Namespace) -> int:
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
@@ -237,6 +244,11 @@ def build_parser() -> argparse.ArgumentParser:
         "exception-demo", help="run the exception handling demonstration"
     )
     exception_demo.set_defaults(func=cmd_exception_demo)
+
+    multi_agent_demo = sub.add_parser(
+        "multi-agent-demo", help="run the multi-agent collaboration demonstration"
+    )
+    multi_agent_demo.set_defaults(func=cmd_multi_agent_demo)
 
     return parser
 

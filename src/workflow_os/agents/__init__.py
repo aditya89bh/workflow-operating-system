@@ -25,6 +25,11 @@ from workflow_os.agents.delegation import (
     TaskNotFoundError,
     new_task_id,
 )
+from workflow_os.agents.demo import (
+    build_demo_registry,
+    build_demo_workflow,
+    run_demo,
+)
 from workflow_os.agents.execution import ExecutionAgent, ExecutionEvent
 from workflow_os.agents.logs import (
     CollaborationEntry,
@@ -93,6 +98,8 @@ __all__ = [
     "TaskNotFoundError",
     "actions_performed",
     "build_accountability",
+    "build_demo_registry",
+    "build_demo_workflow",
     "build_performance_report",
     "compute_collaboration_metrics",
     "delegation_statistics",
@@ -104,6 +111,7 @@ __all__ = [
     "normalize_role",
     "ownership_history",
     "responsibility_chain",
+    "run_demo",
     "task_completion_rate",
     "workload_per_agent",
 ]
