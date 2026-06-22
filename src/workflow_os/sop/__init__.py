@@ -40,6 +40,7 @@ from workflow_os.sop.conflicts import (
     detect_version_conflicts,
     detect_workflow_mapping_conflicts,
 )
+from workflow_os.sop.demo import run_demo
 from workflow_os.sop.exceptions import (
     SOPExceptionRecord,
     SOPExceptionStore,
@@ -150,6 +151,7 @@ __all__ = [
     "new_sop_id",
     "recommend_sop",
     "recommend_sops",
+    "run_demo",
     "score_sop",
     "score_sops",
     "search_by_tags",

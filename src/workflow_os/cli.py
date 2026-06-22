@@ -127,6 +127,13 @@ def cmd_decision_demo(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_sop_demo(args: argparse.Namespace) -> int:
+    from workflow_os.sop.demo import run_demo
+
+    run_demo()
+    return 0
+
+
 def cmd_demo(args: argparse.Namespace) -> int:
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
@@ -201,6 +208,11 @@ def build_parser() -> argparse.ArgumentParser:
         "decision-demo", help="run the decision intelligence demonstration"
     )
     decision_demo.set_defaults(func=cmd_decision_demo)
+
+    sop_demo = sub.add_parser(
+        "sop-demo", help="run the SOP memory demonstration"
+    )
+    sop_demo.set_defaults(func=cmd_sop_demo)
 
     return parser
 
