@@ -37,6 +37,7 @@ from workflow_os.analytics.failure import (
     workflow_failure_metrics,
 )
 from workflow_os.analytics.health import HealthScore, workflow_health_score
+from workflow_os.analytics.json_export import to_json, write_json
 from workflow_os.analytics.reports import (
     WorkflowStatistics,
     WorkflowSummary,
@@ -103,6 +104,7 @@ __all__ = [
     "summarize_durations",
     "team_statistics",
     "to_csv",
+    "to_json",
     "trend_report",
     "workflow_completion_metrics",
     "workflow_completion_trends",
@@ -114,4 +116,5 @@ __all__ = [
     "workflow_summaries",
     "workflow_trends",
     "write_csv",
+    "write_json",
 ]
