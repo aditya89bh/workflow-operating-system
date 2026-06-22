@@ -31,6 +31,13 @@ from workflow_os.sop.record import (
     new_sop_id,
     utcnow,
 )
+from workflow_os.sop.search import (
+    search_by_tags,
+    search_by_title,
+    search_by_workflow_type,
+    search_sops,
+    text_search,
+)
 from workflow_os.sop.sqlite_store import SQLiteSOPStore
 from workflow_os.sop.store import (
     SOPList,
@@ -67,8 +74,13 @@ __all__ = [
     "get_authorship",
     "matches",
     "new_sop_id",
+    "search_by_tags",
+    "search_by_title",
+    "search_by_workflow_type",
+    "search_sops",
     "set_contributors",
     "set_owners",
     "set_reviewers",
+    "text_search",
     "utcnow",
 ]
