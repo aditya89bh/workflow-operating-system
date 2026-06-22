@@ -25,6 +25,7 @@ from workflow_os.approval.delegation import (
     delegate,
     delegation_history,
 )
+from workflow_os.approval.demo import run_demo
 from workflow_os.approval.escalation import (
     EscalationEvent,
     EscalationRule,
@@ -164,6 +165,7 @@ __all__ = [
     "record_response",
     "requester_approvals",
     "response_times",
+    "run_demo",
     "set_state",
     "should_escalate",
     "slowest_approvers",
