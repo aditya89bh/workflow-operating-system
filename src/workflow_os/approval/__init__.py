@@ -26,16 +26,32 @@ from workflow_os.approval.states import (
     record_response,
     set_state,
 )
+from workflow_os.approval.store import (
+    ApprovalList,
+    ApprovalNotFoundError,
+    ApprovalQuery,
+    ApprovalStore,
+    InMemoryApprovalStore,
+    apply_query,
+    matches,
+)
 
 __all__ = [
     "ACTIVE_STATES",
     "TERMINAL_STATES",
+    "ApprovalList",
+    "ApprovalNotFoundError",
     "ApprovalPolicy",
+    "ApprovalQuery",
     "ApprovalRequest",
     "ApprovalState",
+    "ApprovalStore",
+    "InMemoryApprovalStore",
     "PolicyType",
+    "apply_query",
     "is_active",
     "is_terminal",
+    "matches",
     "new_approval_id",
     "new_policy_id",
     "record_response",
