@@ -1,0 +1,13 @@
+flowchart LR
+    A[Workflow definition] --> B[Execution order]
+    B --> C[Lifecycle events]
+    C --> D[(Memory store)]
+    D --> E[Decisions / SOPs]
+    D --> F[Approvals / Exceptions]
+    D --> G[Analytics: metrics, reports, exports]
+    E --> H[Patterns]
+    F --> H
+    G --> H
+    H --> I[Insights]
+    I --> J[Recommendations]
+    J --> K[Maturity & Continuous Improvement]

@@ -1,0 +1,34 @@
+graph TD
+    subgraph Core
+        WF[Workflow Engine]
+    end
+    subgraph Knowledge
+        MEM[Organizational Memory]
+        DEC[Decision Intelligence]
+        SOP[SOP Memory]
+    end
+    subgraph Governance
+        APP[Approval System]
+        EXC[Exception Handling]
+    end
+    subgraph Intelligence
+        AGT[Multi-Agent Collaboration]
+        ANA[Workflow Analytics]
+        LRN[Organizational Learning]
+    end
+
+    WF --> MEM
+    WF --> DEC
+    WF --> SOP
+    WF --> APP
+    WF --> EXC
+    MEM --> ANA
+    APP --> ANA
+    EXC --> ANA
+    MEM --> LRN
+    DEC --> LRN
+    SOP --> LRN
+    APP --> LRN
+    EXC --> LRN
+    ANA --> LRN
+    AGT --> WF
