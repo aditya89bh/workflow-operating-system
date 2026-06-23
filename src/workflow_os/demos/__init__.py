@@ -13,6 +13,12 @@ from workflow_os.demos.employee_onboarding import (
 from workflow_os.demos.employee_onboarding import (
     run_demo as run_employee_onboarding_demo,
 )
+from workflow_os.demos.incident_management import (
+    build_workflow as build_incident_management_workflow,
+)
+from workflow_os.demos.incident_management import (
+    run_demo as run_incident_management_demo,
+)
 from workflow_os.demos.procurement import (
     build_workflow as build_procurement_workflow,
 )
@@ -22,7 +28,9 @@ from workflow_os.demos.procurement import (
 
 __all__ = [
     "build_employee_onboarding_workflow",
+    "build_incident_management_workflow",
     "build_procurement_workflow",
     "run_employee_onboarding_demo",
+    "run_incident_management_demo",
     "run_procurement_demo",
 ]
