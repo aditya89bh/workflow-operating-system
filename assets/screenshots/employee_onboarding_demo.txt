@@ -1,0 +1,11 @@
+workflow: Employee Onboarding (6 steps)
+resolved execution order:
+  1. Offer signed [recruiting] (depends on: -)
+  2. Create IT account [it] (depends on: offer_signed)
+  3. Provision email [it] (depends on: create_account)
+  4. Assign laptop and equipment [it] (depends on: create_account)
+  5. Welcome meeting [manager] (depends on: provision_email, assign_equipment)
+  6. Assign first task [manager] (depends on: welcome_meeting)
+
+workflow finished as 'completed'
+recorded 14 memory events
