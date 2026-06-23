@@ -25,6 +25,9 @@ from workflow_os.demos.incident_management import (
 from workflow_os.demos.incident_management import (
     run_demo as run_incident_management_demo,
 )
+from workflow_os.demos.integration_analytics import (
+    run_demo as run_analytics_demo,
+)
 from workflow_os.demos.integration_approval import (
     run_demo as run_approval_workflow_demo,
 )
@@ -49,6 +52,7 @@ __all__ = [
     "build_employee_onboarding_workflow",
     "build_incident_management_workflow",
     "build_procurement_workflow",
+    "run_analytics_demo",
     "run_approval_workflow_demo",
     "run_customer_onboarding_demo",
     "run_employee_onboarding_demo",
