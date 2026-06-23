@@ -37,6 +37,9 @@ from workflow_os.demos.integration_decision import (
 from workflow_os.demos.integration_exception import (
     run_demo as run_exception_recovery_demo,
 )
+from workflow_os.demos.integration_learning import (
+    run_demo as run_organizational_learning_demo,
+)
 from workflow_os.demos.integration_memory import (
     run_demo as run_workflow_memory_demo,
 )
@@ -58,6 +61,7 @@ __all__ = [
     "run_employee_onboarding_demo",
     "run_exception_recovery_demo",
     "run_incident_management_demo",
+    "run_organizational_learning_demo",
     "run_procurement_demo",
     "run_workflow_decision_demo",
     "run_workflow_memory_demo",
