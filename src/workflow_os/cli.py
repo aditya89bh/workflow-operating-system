@@ -170,6 +170,17 @@ def cmd_learning_demo(args: argparse.Namespace) -> int:
 
 
 def cmd_demo(args: argparse.Namespace) -> int:
+    name = getattr(args, "name", None)
+    if name:
+        from workflow_os.demos.registry import run_named_demo
+
+        try:
+            run_named_demo(name)
+        except KeyError as exc:
+            print(str(exc).strip('"'))
+            return 2
+        return 0
+
     workflow = import_workflow(args.workflow)
     print(f"running workflow {workflow.name!r} ({workflow.id})")
 
@@ -182,6 +193,13 @@ def cmd_demo(args: argparse.Namespace) -> int:
 
     complete_workflow(workflow)
     print(f"workflow {workflow.id!r} finished with status {workflow.status.value!r}")
+    return 0
+
+
+def cmd_demo_all(args: argparse.Namespace) -> int:
+    from workflow_os.demos.registry import run_all_demos
+
+    run_all_demos()
     return 0
 
 
@@ -228,11 +246,21 @@ def build_parser() -> argparse.ArgumentParser:
 
     demo = sub.add_parser("demo", help="run an example workflow end to end")
     demo.add_argument(
+        "name",
+        nargs="?",
+        help="named showcase demo to run (e.g. employee-onboarding)",
+    )
+    demo.add_argument(
         "--workflow",
         default=DEFAULT_DEMO_WORKFLOW,
         help=f"workflow JSON file to run (default: {DEFAULT_DEMO_WORKFLOW})",
     )
     demo.set_defaults(func=cmd_demo)
+
+    demo_all = sub.add_parser(
+        "demo-all", help="run every showcase demonstration in sequence"
+    )
+    demo_all.set_defaults(func=cmd_demo_all)
 
     memory_demo = sub.add_parser(
         "memory-demo", help="run the organizational memory demonstration"

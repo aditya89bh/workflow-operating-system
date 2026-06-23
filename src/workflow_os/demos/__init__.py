@@ -49,18 +49,28 @@ from workflow_os.demos.procurement import (
 from workflow_os.demos.procurement import (
     run_demo as run_procurement_demo,
 )
+from workflow_os.demos.registry import (
+    DEMOS,
+    demo_names,
+    run_all_demos,
+    run_named_demo,
+)
 
 __all__ = [
+    "DEMOS",
     "build_customer_onboarding_workflow",
     "build_employee_onboarding_workflow",
     "build_incident_management_workflow",
     "build_procurement_workflow",
+    "demo_names",
+    "run_all_demos",
     "run_analytics_demo",
     "run_approval_workflow_demo",
     "run_customer_onboarding_demo",
     "run_employee_onboarding_demo",
     "run_exception_recovery_demo",
     "run_incident_management_demo",
+    "run_named_demo",
     "run_organizational_learning_demo",
     "run_procurement_demo",
     "run_workflow_decision_demo",
